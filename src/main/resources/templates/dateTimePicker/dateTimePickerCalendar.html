@@ -1,0 +1,50 @@
+<div>
+
+	<table id="datepicker-calendar" class="table table-bordered text-center">
+
+		<thead>
+			<tr>
+				<th ng-if="showWeekNumbers"></th>
+				<th class="text-center">{{'dateTimePicker.day.short.monday' | translate}}</th>
+				<th class="text-center">{{'dateTimePicker.day.short.tuesday' | translate}}</th>
+				<th class="text-center">{{'dateTimePicker.day.short.wednesday' | translate}}</th>
+				<th class="text-center">{{'dateTimePicker.day.short.thursday' | translate}}</th>
+				<th class="text-center">{{'dateTimePicker.day.short.friday' | translate}}</th>
+				<th class="text-center">{{'dateTimePicker.day.short.saturday' | translate}}</th>
+				<th class="text-center">{{'dateTimePicker.day.short.sunday' | translate}}</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr ng-repeat="week in weeks">
+				<td class="datepicker-calendar-weekno"
+					ng-if="showWeekNumbers">
+						{{week.num}}
+				</td>
+				<td ng-repeat="day in week.days"
+					class="datepicker-calendar-day"
+					ng-class="{'datepicker-other-month': day.month !== calendarMonth,
+									   'datepicker-today': today.equals(day),
+									   'datepicker-selected': day.equals(ngModel),
+									   'datepicker-disabled': day.before(dateMin) || day.after(dateMax)}"
+					ng-click="selectDay(day)">
+					{{day.day}}
+				</td>
+			</tr>
+		</tbody>
+
+	</table>
+
+	<p class="datepicker-selected-day-label">
+		<span ng-show="ngModel !== undefined">
+			<a href="" ng-click="goToSelectedDay()">
+				{{'dateTimePicker.label.selectedDay' | translate}}: {{ngModel | date:dateFormat}}
+			</a>
+		</span>
+
+		<span ng-show="ngModel === undefined">
+			{{'dateTimePicker.label.noDayIsSelected' | translate}}
+		</span>
+	</p>
+
+</div>

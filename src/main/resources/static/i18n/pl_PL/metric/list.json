@@ -1,0 +1,9 @@
+{
+   "metric-list": {
+      "label": {
+         "javascriptError":"Liczba błędów z JavaScriptu:",
+         "noData":"Brak danych o metrykach aplikacji",
+         "title":"Metryki aplikacji"
+      }
+   }
+}

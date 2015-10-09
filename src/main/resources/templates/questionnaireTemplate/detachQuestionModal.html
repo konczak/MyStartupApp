@@ -1,0 +1,42 @@
+<div class="modal-body">
+   <h4 class="modal-title">
+      {{'questionnaireTemplate-detach.confirm' | translate}}
+   </h4>
+</div>
+
+<div class="modal-body">
+	<h4>
+         {{question}}
+	</h4>
+	<span class="fa-stack fa-lg lightbolb-tip"> <i
+		class="fa fa-circle fa-stack-2x"></i> <i
+		class="fa fa-lightbulb-o fa-stack-1x fa-inverse"></i>
+	</span>
+	<i>
+		 <span>{{'questionnaireTemplate-detach.tip' | translate}}</span>
+	</i>
+
+</div>
+
+<div class="modal-footer">
+   <button type="submit" class="btn btn-primary"
+   		   data-dismiss="modal"
+   		   ng-click="detach()"
+   		   ng-attr-title="{'questionnaireTemplate-detach.button.detach' | translate}}"
+   		   force-focus="true"
+   		   focus-timeout="1000">
+      <span class="btn-label">
+         <i class="fa fa-check"></i> 
+         <i>{{'questionnaireTemplate-detach.button.detach' | translate}}</i>
+      </span>
+   </button>
+   <button type="button" class="btn btn-default"
+   		   ng-click="cancel()"
+   		   ng-attr-title="{{'questionnaireTemplate-detach.button.cancel' | translate}}">
+      <span class="btn-label">
+         <i class="fa fa-undo"></i> 
+         <i>{{'questionnaireTemplate-detach.button.cancel' | translate}}</i>
+      </span>
+   </button>
+   <br/>
+</div>

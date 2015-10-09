@@ -1,0 +1,85 @@
+{
+   "breadcrumb": {
+      "dashboard": "Dashboard",
+      "documentation": "Documentation",
+      "employee": {
+         "employee": "Employee"
+      },
+      "health": "Health",
+      "jasmine": "Jasmine tests",
+      "metric": "Application Metrics"
+   },
+   "dateTimePicker": {
+      "button": {
+         "cancel": "Cancel",
+         "clear": "Clear",
+         "confirm": "Confirm",
+         "today": "Today"
+      },
+      "day": {
+         "short": {
+            "monday": "Mon",
+            "tuesday": "Tue",
+            "wednesday": "Wed",
+            "thursday": "Thu",
+            "friday": "Fri",
+            "saturday": "Sat",
+            "sunday": "Sun"
+         }
+      },
+      "label": {
+         "noDayIsSelected": "No day is selected",
+         "selectedDay": "Jump to selected day"
+      },
+      "month": {
+         "january": "January",
+         "february": "February",
+         "march": "March",
+         "april": "April",
+         "may": "May",
+         "june": "June",
+         "july": "July",
+         "august": "August",
+         "september": "September",
+         "october": "October",
+         "november": "November",
+         "december": "December"
+      }
+   },
+   "index-html": {
+      "appName": "MyStartupApp",
+      "loading": "Loading...",
+      "reportDefect": "Report defect"
+   },
+   "navbar": {
+      "employee": "Employees",
+      "health": "Health Checks",
+      "metric": "Application Metrics",
+      "questionnaireTemplate": "Questionnaire Template",
+      "language": {
+         "english": "English",
+         "polish": "Polish"
+      },
+      "menu": {
+         "releaseNotes": "Release Notes",
+         "api": "API Docs",
+         "manage": "Manage",
+         "logout": "Logout"
+      }
+   },
+   "session": {
+      "expired": "Session expired",
+      "goToLoginPage": "Go to login page"
+   },
+   "shared": {
+      "details": "Details",
+      "add": "Add",
+      "edit": "Edit",
+      "popup": {
+         "general-failure": {
+            "body": "Sorry, we encountered an internal error.",
+            "title": "Internal Error"
+         }
+      }
+   }
+}

@@ -1,0 +1,27 @@
+<span ng-if="languageFlag === 'en-GB'">
+
+	<img class="flag lang-en" 
+	      th:src="@{/img/blank.gif}" 
+	      data-toggle="tooltip" 
+	      data-placement="top" 
+	      ng-attr-title="{{'languageFlag-directive.language.english'|translate}}" />
+	      
+	<span ng-if="withLabel">
+		{{'languageFlag-directive.language.english'|translate}}
+	</span>
+	
+</span>
+
+<span ng-if="languageFlag === 'pl-PL'">
+
+	<img class="flag lang-pl" 
+	     th:src="@{/img/blank.gif}" 
+	     data-toggle="tooltip" 
+	     data-placement="top" 
+	     ng-attr-title="{{'languageFlag-directive.language.polish'|translate}}" />
+	     
+	<span ng-if="withLabel">
+		{{'languageFlag-directive.language.polish'|translate}}
+	</span>
+	
+</span>

@@ -1,0 +1,84 @@
+{
+   "breadcrumb": {
+      "dashboard": "Dashboard",
+      "documentation": "Dokumentacja",
+      "employee": {
+      	"employee" : "Pracownicy"
+      }, 
+      "health": "Health",
+      "jasmine": "Jasmine tests",
+      "metric": "Metryki aplikacji"
+   },
+   "dateTimePicker": {
+      "button": {
+         "cancel": "Anuluj",
+         "clear": "Czyść",
+         "confirm": "Potwierdź",
+         "today": "Dzisiaj"
+      },
+      "day": {
+         "short": {
+            "monday": "Pon",
+            "tuesday": "Wt",
+            "wednesday": "Śr",
+            "thursday": "Czw",
+            "friday": "Pt",
+            "saturday": "So",
+            "sunday": "Nd"
+         }
+      },
+      "label": {
+         "noDayIsSelected": "Nie wybrano dnia",
+         "selectedDay": "Przejdź do wybranego dnia"
+      },
+      "month": {
+         "january": "Styczeń",
+         "february": "Luty",
+         "march": "Marzec",
+         "april": "Kwiecień",
+         "may": "Maj",
+         "june": "Czerwiec",
+         "july": "Lipiec",
+         "august": "Sierpień",
+         "september": "Wrzesień",
+         "october": "Październik",
+         "november": "Listopad",
+         "december": "Grudzień"
+      }
+   },
+   "index-html": {
+      "appName": "MyStartupApp",
+      "loading": "Ładowanie..."
+   },
+   "navbar": {
+      "health": "Health",
+      "jasmine": "Testy Jasmine",
+      "metric": "Metryki aplikacji",
+      "questionnaireTemplate": "Szablony ankiet",
+      "language": {
+         "english": "Angielski",
+         "polish": "Polski"
+      },
+      "menu": {
+         "releaseNotes": "Release Notes",
+         "api": "API Docs",
+         "manage": "Zarządzaj",
+         "logout": "Wyloguj"
+      }
+   },
+   "session": {
+      "expired": "Sesja wygasła",
+      "goToLoginPage": "Przejdź do strony logowania"
+   },
+   "shared": {
+      "details": "Szczegóły",
+      "add": "Dodaj",
+      "edit": "Edytuj",
+      "popup": {
+         "general-failure": {
+            "body": "Przepraszamy wystąpił błąd krytyczny systemu",
+            "title": "Internal Error"
+         }
+      }
+   }
+}

@@ -1,0 +1,52 @@
+{
+   "questionnaireTemplate-details": {
+      "button": {
+         "assignQuestion": "Przypisz pytanie",
+         "collapse": "Zwiń",
+         "collapseAll": "Zwiń wszystkie",
+         "expand": "Rozwiń",
+         "expandAll": "Rozwiń wszystkie",
+         "detach": "Odepnij to pytanie od szablonu",
+         "return": "Powrót",
+         "questionWizard": {
+            "newQuestion": "Dodaj nowe pytanie"
+         }
+      },
+      "label": {
+         "copy":"Kopiuj",
+         "createdAt": "Utworzono",
+         "createdBy": "Utworzony przez",
+         "details": "Szablon ankiety",
+         "name": "Nazwa szablonu",
+         "question": "Treść pytania",
+         "questions": "Pytania"
+      },
+      "language": {
+         "english": "angielski",
+         "language": "Język",
+         "polish": "polski"
+      },
+      "popup": {
+         "save": {
+            "failure": {
+               "body": {
+                  "body": "Nie udało się zapisać szablonu ankiety",
+                  "duplicate": "Szablon ankiety z podaną nazwą już istnieje"
+               },
+               "title": "Porażka"
+            },
+            "success": {
+               "body": "Szablon ankiety został zapisany",
+               "title": "Zapisano"
+            }
+         }
+      },
+      "validator": {
+         "name": {
+            "required": "Nazwa jest wymagana",
+            "tooLong": "Nazwa jest za długa. Dopuszczalna długość to {{max}} znaków",
+            "tooShort": "Nazwa jest za krótka, wymagane co najmniej {{min}} znaków"
+         }
+      }
+   }
+}

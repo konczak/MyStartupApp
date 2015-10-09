@@ -1,0 +1,21 @@
+{
+   "health-list": {
+      "button":{
+         "refresh":"Refresh"
+      },
+      "label": {
+         "database":"Database",
+         "diskspace":"Disk space",
+         "ldap":"LDAP",
+         "mail":"Email",
+         "name":"Service name",
+         "stacktrace":"Stacktrace",
+         "status":{
+            "down":"DOWN",
+            "status":"Status",
+            "up":"UP"
+         },
+         "title":"Health checks"
+      }
+   }
+}

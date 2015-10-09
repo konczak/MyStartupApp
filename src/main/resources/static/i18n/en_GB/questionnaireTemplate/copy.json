@@ -1,0 +1,32 @@
+{
+   "questionnaireTemplate-copy": {
+      "button": {
+         "cancel": "Cancel",
+         "copy": "Copy"
+      },
+      "label": {
+         "header": "Copy Questionnaire Template",
+         "newName": "New name"
+      },
+      "popup": {
+         "copy": {
+            "failure": {
+               "body": "Could not copy Questionnaire Template",
+               "title": "Failure"
+            },
+            "success": {
+               "body": "Questionnaire Template has been copied",
+               "title": "Saved"
+            }
+         }
+      },
+      "validator": {
+         "name": {
+            "duplicated": "Questionnaire Template with given name already exists",
+            "required": "Name is required",
+            "tooLong": "Name is too long, it should have maximum {{max}} characters",
+            "tooShort": "Name is too short, it should have at least {{min}} characters"
+         }
+      }
+   }
+}

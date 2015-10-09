@@ -1,0 +1,14 @@
+{
+   "employee-common": {
+      "label":{
+         "actions": "Działania",
+         "details":"Szczegóły",
+         "surveys":"Ankiety",
+         "meetings":"Spotkania",
+         "goals":"Cele",
+         "performance":"Produktywność",
+         "cvOnline":"CV Online",
+         "trainings":"Szkolenia"
+      }
+   }
+}

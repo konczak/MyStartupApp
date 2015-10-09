@@ -1,0 +1,24 @@
+{
+   "questionnaireTemplate-list": {
+      "count": "Count of displayed templates: {{count}}",
+      "noData": "No available Questionnaire Templates ",
+      "label": {
+         "title": "Questionnaire Templates",
+         "add": "Create Questionnaire Template",
+         "name": "Template name",
+         "createdBy": "Created by",
+         "createdAt": "Created at",
+         "dateFrom": "From",
+         "dateTo": "To",
+         "updatedAt": "Last updated at",
+         "language": "Language"
+      },
+      "dropdown": {
+         "language": {
+            "all": "All",
+            "english": "English",
+            "polish": "Polish"
+         }
+      }
+   }
+}

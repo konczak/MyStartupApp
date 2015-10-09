@@ -1,0 +1,32 @@
+{
+   "questionnaireTemplate-copy": {
+      "button": {
+         "cancel": "Anuluj",
+         "copy": "Kopiuj"
+      },
+      "label": {
+         "header": "Kopiuj szablon ankiety",
+         "newName": "Nowa nazwa"
+      },
+      "popup": {
+         "copy": {
+            "failure": {
+               "body": "Nie udało się skopiować szablonu ankiety",
+               "title": "Porażka"
+            },
+            "success": {
+               "body": "Szablon ankiety został skopiowany",
+               "title": "Zapisano"
+            }
+         }
+      },
+      "validator": {
+         "name": {
+            "duplicated": "Szablon ankiety z podaną nazwą już istnieje",
+            "required": "Nazwa jest wymagana",
+            "tooLong": "Nazwa jest za długa. Dopuszczalna długość to {{max}} znaków",
+            "tooShort": "Nazwa jest za krótka, wymagane co najmniej {{min}} znaków"
+         }
+      }
+   }
+}

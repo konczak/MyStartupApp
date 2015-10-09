@@ -1,0 +1,61 @@
+<h3>
+   <span>
+      {{'health-list.label.title'|translate}}
+   </span>
+   <button class="btn btn-primary pull-right"
+           ng-show="healths"
+           ng-click="refresh()">
+      <i class="fa fa-refresh fa-fw"></i>
+      <span>{{'health-list.button.refresh'|translate}}</span>
+   </button>
+</h3>
+<br/>
+<div class="text-center" 
+     ng-show="!healths">
+   <i class="fa fa-3x fa-spinner fa-pulse"></i>
+</div>
+
+<div class="row row-header-top" ng-show="healths">
+   <div class="hidden-xs col-md-3">{{'health-list.label.name'|translate}}</div>
+   <div class="hidden-xs col-md-3 text-center">{{'health-list.label.status'|translate}}</div>
+   <div class="hidden-xs col-md-3">{{'health-list.label.stacktrace'|translate}}</div>
+   <div class="hidden-xs col-md-1"></div>
+</div>
+
+<div class="row row-custom" ng-repeat="(name, health) in healths">
+   <div class="col-xs-12 col-md-3" ng-switch="name">
+      <span ng-switch-when="db">{{'health-list.label.database'|translate}}</span>
+      <span ng-switch-when="diskSpace">{{'health-list.label.diskspace'|translate}}</span>
+      <span ng-switch-when="ldap">{{'health-list.label.ldap'|translate}}</span>
+      <span ng-switch-when="mail">{{'health-list.label.mail'|translate}}</span>
+      <span ng-switch-default="true">{{name}}</span>
+   </div>
+   <div class="col-xs-5 visible-xs">
+      <strong>
+         {{'health-list.label.status'|translate}}
+      </strong>
+   </div>
+   <div class="col-xs-7 col-md-3 text-center" ng-switch="health.status">
+      <span class="label label-success"
+            ng-switch-when="UP">
+         {{'health-list.label.status.up'|translate}}
+      </span>
+      <span class="label label-danger"
+            ng-switch-when="DOWN">
+         {{'health-list.label.status.down'|translate}}
+      </span>
+   </div>
+   <div class="col-xs-5 visible-xs">
+      <strong>
+         {{'health-list.label.stacktrace'|translate}}
+      </strong>
+   </div>
+   <div class="col-xs-7 col-md-3 text-center">
+      <span ng-show="health.error">
+         <button class="btn btn-primary btn-sm" 
+                 ng-click="showStackTrace(health.error)">
+            <i class="fa fa-eye"></i>
+         </button>
+      </span>
+   </div>
+</div>

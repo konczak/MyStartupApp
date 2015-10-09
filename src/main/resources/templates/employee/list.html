@@ -1,0 +1,143 @@
+<h3>
+   <span>
+      {{'employee-list.label'|translate}}
+   </span>
+</h3>
+<div class="row">
+   <div class="col-md-4">
+      <h4 translate="employee-list.label.count"
+          translate-values="{count:'{{filtered.length}}'}"></h4>
+   </div>
+   <div class="col-md-4">
+      <div ng-show="loading">
+         <i class="fa fa-spinner fa-spin"></i>
+         <span class="text-lowercase">{{'employee-list.label.loading'|translate}}</span>
+      </div>
+   </div>
+   <div class="col-md-4">
+      <button class="btn btn-info main-button" 
+              type="button"
+              title="{{'employee-list.label.refresh'|translate}}"
+              data-toggle="modal"
+              data-target="#ProcessingModal"
+              ng-click="refresh()" >
+         <span class="btn-label">
+            <i class="fa fa-refresh" ></i>
+            <span>{{'employee-list.label.refresh'|translate}}</span>
+         </span>
+      </button>
+   </div>
+</div>
+
+<h4 class="text-center"
+    ng-show="!employees.length">
+   {{'employee-list.label.noData'|translate}}
+</h4>
+
+<div ng-show="employees.length">
+   <div class="row row-header-top">
+      <div class="hidden-xs col-md-3">{{'employee-list.label.employee.lastname'|translate}}</div>
+      <div class="hidden-xs col-md-3">{{'employee-list.label.employee.firstname'|translate}}</div>
+      <div class="hidden-xs col-md-3">{{'employee-list.label.title'|translate}}</div>
+      <div class="hidden-xs col-md-2">{{'employee-list.label.worker'|translate}}</div>
+      <div class="hidden-xs col-md-1"></div>
+   </div>
+   <div class="row row-header-bottom">
+      <div class="hidden-xs col-md-3">         
+         <input type="text"
+                class="form-control input-sm"
+                placeholder="{{'employee-list.label.employee.lastname'|translate}}"
+                ng-change="updateLastnameParam()"
+                ng-model="searchText.lastname"/>
+      </div>                
+      <div class="hidden-xs col-md-3">
+         <input type="text"
+                class="form-control input-sm"
+                placeholder="{{'employee-list.label.employee.firstname'|translate}}"
+                ng-change="updateFirstnameParam()"
+                ng-model="searchText.firstname"/>
+      </div>       
+      <div class="hidden-xs col-md-3">
+         <select class="form-control input-sm"
+                 ng-change="updateTitleParam()"
+                 ng-model="searchText.title"
+                 ng-options="title for title in employeeTitles">
+            <option value=""
+                    ng-selected="selected">
+               {{'employee-list.label.title.any'|translate}}
+            </option>
+         </select>
+      </div>
+      <div class="hidden-xs col-md-2">
+         <select class="form-control input-sm"
+                 ng-change="updateStatusParam()"
+                 ng-model="searchText.deleted">
+            <option  value="false">
+               {{'employee-list.label.worker.employees'|translate}}
+            </option>
+            <option value="">
+              {{'employee-list.label.worker.all'|translate}} 
+            </option>
+            <option value="true">
+               {{'employee-list.label.worker.deleted'|translate}}
+            </option>
+         </select>
+      </div>
+      <div class="hidden-xs col-md-1">
+         <button class="btn btn-default btn-sm main-button" type="button" ng-click="searchText = '';
+                    searchText.deleted = 'false'">
+            <i class="fa fa-remove"></i>
+         </button>
+      </div>
+   </div>
+   <div class="row row-custom" ng-repeat="employee in filtered = (employees| employeeListFilter:searchText
+                        | orderBy:['lastname', 'firstname', 'title']) ">
+      <div class="col-xs-5 visible-xs">
+         <strong><small>{{'employee-list.label.employee.lastname'|translate}}</small></strong>
+      </div>
+      <div class="col-xs-7 col-md-3">
+         <a ui-sref="employee.common.details({id: employee.employeeId})">
+            {{employee.lastname}}
+         </a>
+      </div>
+      <div class="col-xs-5 visible-xs">
+         <strong><small>{{'employee-list.label.employee.firstname'|translate}}</small></strong>
+      </div>
+      <div class="col-xs-7 col-md-3">
+         <a ui-sref="employee.common.details({id: employee.employeeId})">
+            {{employee.firstname}}
+         </a>
+      </div>
+      <div class="col-xs-5 visible-xs">
+         <strong><small>{{'employee-list.label.title'|translate}}</small></strong>
+      </div>
+      <div class="col-xs-7 col-md-3">{{employee.title}}</div>
+      <div class="col-xs-5 visible-xs">
+         <strong><small>{{'employee-list.label.worker'|translate}}</small></strong>
+      </div>
+      <div class="visible-xs col-xs-7">
+         <span ng-show="employee.deleted" data-toggle="tooltip" data-placement="top" title="{{'employee-list.label.worker.deletedAt'|translate}}"  class='text-danger fa fa-lg fa-remove'/>   
+         <span ng-show="!employee.deleted" data-toggle="tooltip" data-placement="top" title="{{'employee-list.label.worker'|translate}}"  class="text-success fa fa-lg fa-check"/>   
+      </div>
+      <div class="hidden-xs col-md-2">
+         <center>
+            <span ng-show="employee.deleted" data-toggle="tooltip" data-placement="top" title="{{'employee-list.label.worker.deletedAt'|translate}}"  class='text-danger fa fa-lg fa-remove'/>   
+            <span ng-show="!employee.deleted" data-toggle="tooltip" data-placement="top" title="{{'employee-list.label.worker'|translate}}"  class="text-success fa fa-lg fa-check"/>   
+         </center>
+      </div>
+      <div class="hidden-xs col-md-1"></div>
+   </div>
+</div>
+
+<div class="modal fade" tabindex="-1" id="ProcessingModal" role="dialog" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-body">
+            <div class="text-center">
+               <i class="fa fa-cog fa-5x fa-spin"></i>
+               <h4>{{'employee-list.label.loading'|translate}} </h4>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

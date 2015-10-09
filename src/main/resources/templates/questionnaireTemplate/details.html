@@ -1,0 +1,132 @@
+<h3>
+   <span translate="questionnaireTemplate-details.label.details">
+   		Questionnaire template
+   </span>
+   <button class="btn btn-info"
+   		   ng-click="copy()">
+   		<span class="fa fa-copy"></span>
+   		<span translate="questionnaireTemplate-details.label.copy">
+   			Copy
+   		</span>
+   </button>
+</h3>
+
+<div class="row form-group">
+   <span class="col-sm-2 text-right">
+      <label for="option" class=" control-label"
+             translate="questionnaireTemplate-details.label.name">Name</label>
+   </span>
+   <div class="col-sm-6">
+   		<div
+        	class="editable-property"
+        	editable-textarea="questionnaireTemplate.name"
+        	onbeforesave="updateName($data)">
+               		{{questionnaireTemplate.name}}
+        	<button class="btn btn-info btn-xs option-icon pull-top-right">
+         		<i class="fa fa-pencil"></i>
+        	</button>
+        </div>
+   </div>
+</div>
+
+<div class="row form-group">
+   <span class="col-sm-2 text-right">
+      <label for="option" class=" control-label"
+             translate="questionnaireTemplate-details.language">Language</label>
+   </span>
+   <div class="col-sm-6">
+   		<div class="editable-property" 
+             editable-select="questionnaireTemplate.language" 
+             e-ng-options="s.value as s.text for s in languages"
+             onbeforesave="updateLanguage($data)">
+             <div language-flag="questionnaireTemplate.language" with-label="true"></div>
+             
+             <button class="btn btn-info btn-xs option-icon pull-top-right">
+                     <i class="fa fa-pencil"></i>
+             </button>
+         </div>
+   </div>
+</div>
+
+<div class="row form-group">
+   <span class="col-sm-2 text-right">
+      <label for="option" class=" control-label"
+             translate="questionnaireTemplate-details.label.createdBy">Created by</label>
+   </span>
+   <div class="col-sm-6">
+   		{{questionnaireTemplate.employee.firstname}}&nbsp;{{questionnaireTemplate.employee.lastname}}
+   </div>
+</div>
+
+<div class="row form-group">
+   <span class="col-sm-2 text-right">
+      <label for="option" class=" control-label"
+             translate="questionnaireTemplate-details.label.createdAt">Created at</label>
+   </span>
+   <div class="col-sm-6">
+   		{{questionnaireTemplate.createdAt | date:'yyyy-MM-dd HH:mm'}}
+   </div>
+</div>
+
+<div class="row form-group">
+   <span class="col-sm-2 text-right">
+      <label for="option" class=" control-label"
+             translate="questionnaireTemplate-details.label.questions">Questions</label>
+   </span>
+   <div class="col-sm-6">
+   		<div ng-if="questionnaireTemplate.questions.length > 0" class="row">
+	   		<div class="col-xs-12">
+		   		<div class="btn-group pull-right" role="group">
+		   			<button class="btn btn-default btn-sm" type="button"
+		   					ng-click="collapseAll()">
+		   				{{'questionnaireTemplate-details.button.collapseAll' | translate}}
+		   			</button>
+		   			<button class="btn btn-default btn-sm" type="button"
+		   					ng-click="expandAll()">
+		   				{{'questionnaireTemplate-details.button.expandAll' | translate}}
+		   			</button>
+				</div>
+	   		</div>
+   		</div>
+   
+   		<div class="panel panel-default panel-body"
+   			 ng-repeat="question in questionnaireTemplate.questions">
+				<button class="btn btn-danger pull-right"
+					ng-click="openDetachQuestionModal(question)"
+					ng-attr-title="{{'questionnaireTemplate-details.button.detach' |translate}}">
+					<i class="fa fa-times fa-flip-horizontal"></i>
+				</button>
+				<div question-view="question"></div>
+				<div>
+			</div>
+		</div>
+   </div>
+</div>
+
+<div class="row form-group">
+	<div class="col-sm-10 col-sm-offset-2">
+		<button ng-attr-title="{{'questionnaireTemplate-details.button.assignQuestion' | translate}}" 
+				class="btn btn-primary" 
+				type="button"
+				ng-click="openAssignQuestionModal()">
+        	<i class="fa fa-check-square-o"></i>
+        	<span translate="questionnaireTemplate-details.button.assignQuestion">Assign Question</span>
+     	</button>	
+	
+		<button ng-attr-title="{{'questionnaireTemplate-details.button.questionWizard.newQuestion'|translate}}" 
+				class="btn btn-success" 
+				type="button"
+				ng-click="openAddQuestionWizard()">
+        	<i class="fa fa-plus-square"></i>
+        	<span translate="questionnaireTemplate-details.button.questionWizard.newQuestion">Create Question</span>
+     	</button>
+	</div>
+</div>
+<div class="row pull-right">
+	<span class="col-sm-2">
+      <a ui-sref="questionnaireTemplate.list" ng-attr-title="{{'questionnaireTemplate-details.button.return'|translate}}" class="btn btn-default">
+         <i class="fa fa-undo"></i>
+         <span translate="questionnaireTemplate-details.button.return">Return</span>
+      </a>
+   </span>
+</div>

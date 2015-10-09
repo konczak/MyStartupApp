@@ -1,0 +1,9 @@
+{
+   "metric-list": {
+      "label": {
+         "javascriptError":"Count of errors from JavaScript:",
+         "noData":"No data about Application metrics",
+         "title":"Application metrics"
+      }
+   }
+}

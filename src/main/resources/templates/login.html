@@ -1,0 +1,125 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-3.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <title>Login</title>
+
+      <meta charset="utf-8"/>
+      <meta name="description" content=""/>
+      <meta name="author" content="Konczak Piotr"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+      <link media="screen"
+            rel="stylesheet"
+            th:href="@{/webjars/bootswatch-spacelab/3.2.0/css/bootstrap.min.css}" />
+      <link media="screen"
+            rel="stylesheet"
+            th:href="@{/webjars/font-awesome/4.4.0/css/font-awesome.min.css}" />
+      <link media="screen"
+            rel="stylesheet"
+            th:href="@{/css/main.css}"/>
+      <link media="screen"
+            rel="stylesheet"
+            href="../static/css/signin.css"
+            th:href="@{/css/signin.css}"/>
+      <link rel="shortcut icon"
+            type="image/x-icon"
+            th:href="@{/img/favicon.png}"/>
+   </head>
+   <body>
+      <span class="developmentRibbon" th:if="${dev}">&nbsp;&nbsp;&nbsp;&nbsp;Development</span>
+      <span class="basicAuthRibbon" th:if="${auth_basic}">Basic&nbsp;authentication</span>
+
+      <header>
+         <nav class="navbar navbar-default navbar-static-top" role="navigation">
+            <div class="container">
+               <div class="row">
+                  <div class="navbar-header">                		
+                     <a href="https://inside.cybercom.com"><img src="../../../static/img/Logo_Blue.png" th:src="@{/img/Logo_Blue.png}" alt="Cyber_Logo"/></a>       
+                  </div>
+               </div>
+
+               <div class="row">
+                  <div class="navbar-collapse collapse">
+                     <ul class="nav navbar-nav navbar-right bottom-navbar-right">
+                        <li>
+                           <a href="?language=pl_PL">
+                              <img src="../../../static/img/blank.gif" th:src="@{/img/blank.gif}" class="flag lang-pl" alt="PL" />
+                           </a>
+                        </li>
+                        <li>
+                           <a href="?language=en_GB">
+                              <img src="../../../static/img/blank.gif" th:src="@{/img/blank.gif}" class="flag lang-en" alt="EN" />
+                           </a>
+                        </li>
+                     </ul>
+                  </div>
+
+               </div>
+            </div>
+         </nav>
+      </header>
+
+      <div class="container">
+         <p th:if="${param.logout}" class="alert alert-info alert-dismissable">
+            <object th:text="#{security_logout_message}">
+               You have been logged out
+            </object>
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+         </p>
+         <form name="form" th:action="@{/login}" method="POST" class="form-signin">
+            <h2 class="form-signin-heading" th:text="#{global_application_name}">
+               Login with Username and Password
+            </h2>
+            <div class="input-group">
+               <span id="usernameAddon" class="input-group-addon">
+                  <i class="fa fa-envelope-o fa-fw"></i>
+               </span>
+               <input type="text" name="username" class="form-control"
+                      placeholder="username" 
+                      th:placeholder="#{security_login_username}"
+                      autofocus="true"/>
+            </div>
+            <div class="input-group">
+               <span id="passwordAddon" class="input-group-addon">
+                  <i class="fa fa-lock fa-fw"></i>
+               </span>
+               <input type="password" name="password" class="form-control"
+                      placeholder="password"
+                      th:placeholder="#{security_login_password}"/>
+            </div>
+            <div class="alert alert-danger" th:if="${param.error}">
+               <i class="fa fa-warning"></i>
+               <object th:text="#{security_bad_credentials}">
+                  Wrong user or password
+               </object>
+            </div>
+            <br/>
+            <input class="btn btn-lg btn-primary btn-block" type="submit" value="Login"/>
+
+            <!--                <input type="hidden"
+                                   th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />-->
+         </form>
+         
+         <div class="row developmentAlert">
+            <div class="col-md-offset-3 col-md-6">
+               <p th:if="${auth_basic}" class="alert alert-warning">
+                  In BasicAuth mode you can login with one of default accounts:<br/>
+                  - <strong>piko</strong> as user<br/>
+                  - <strong>hruser</strong> as HR<br/>
+                  - <strong>admin</strong> as Admin<br/>
+                  <br/>
+                  use password: password
+               </p>
+            </div>
+         </div>
+      </div>
+
+      <footer th:include="fragments/footerPublic">
+         FOOTER
+      </footer>
+
+      <script src="" th:src="@{/webjars/jquery/2.1.1/jquery.min.js}"/>
+      <script src="" th:src="@{/webjars/bootstrap/3.2.0/js/bootstrap.min.js}"/>
+   </body>
+</html>

@@ -1,0 +1,26 @@
+{
+   "employee-list": {
+      "label": {
+         "count": "Liczba wyświetlonych pracowników: {{count}}",
+         "label": "Pracownicy",
+         "loading": "Ładowanie...",
+         "noData": "Brak dostępnych danych o pracownikach",
+         "refresh": "Odśwież liste pracowników (z LDAP)",
+         "employee": {
+            "firstname": "Imię",
+            "lastname": "Nazwisko"
+         },
+         "title": {
+            "title": "Stanowisko",
+            "any": "Każde"
+         },
+         "worker": {
+            "all": "Wszyscy",
+            "deleted": "Usunięci",
+            "deletedAt": "Pracownik zwolniony",
+            "employees": "Pracownicy",
+            "worker": "Pracownik"
+         }
+      }
+   }
+}

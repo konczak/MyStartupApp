@@ -1,0 +1,14 @@
+{
+   "employee-details": {
+      "employee": {
+         "title": "Stanowisko",
+         "firstname": "Imię",
+         "lastname": "Nazwisko",
+         "username": "Nazwa użytkownika",
+         "email": "Adres email",
+         "createdAt": "Utworzony(a)"
+      },
+      "manager": "Manager",
+      "noManager": "Ten pracownik nie ma managera"
+   }
+}

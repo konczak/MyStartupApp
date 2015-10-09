@@ -1,0 +1,46 @@
+<div class="row">
+   <div class="col-md-offset-1 col-md-2 col-xs-12 text-center-xs">
+      <img th:attr="ng-src=${application.rpgPhotoLink}+'{{employee.photo}}'" 
+           ng-if="employee.photo !== null"
+           width="115"
+           height="150"
+           />
+      <img th:src="@{/img/default_photo.png}" 
+           ng-if="employee.photo === null"
+           width="115"
+           height="150"
+           />
+   </div>
+   <div class="col-md-9 col-xs-12">
+      <div class="row">
+         <label class="col-md-3 col-xs-5">{{'employee-details.employee.title'|translate}}</label>
+         <div class="col-md-4 col-xs-7">{{employee.title}}</div>
+      </div>
+      <div class="row">
+         <label class="col-md-3 col-xs-5">{{'employee-details.employee.firstname'|translate}}</label>
+         <div class="col-md-4 col-xs-7">{{employee.firstname}}</div>
+      </div>
+      <div class="row">
+         <label class="col-md-3 col-xs-5">{{'employee-details.employee.lastname'|translate}}</label>
+         <div class="col-md-4 col-xs-7">{{employee.lastname}}</div>
+      </div>
+      <div class="row">
+         <label class="col-md-3 col-xs-5">{{'employee-details.employee.username'|translate}}</label>
+         <div class="col-md-4 col-xs-7">{{employee.username}}</div>
+      </div>
+      <div class="row">
+         <label class="col-md-3 col-xs-5">{{'employee-details.employee.email'|translate}}</label>
+         <div class="col-md-4 col-xs-7">{{employee.mail}}</div>
+      </div>
+      <div class="row">
+         <label class="col-md-3 col-xs-5">{{'employee-details.employee.createdAt'|translate}}</label>
+         <div class="col-md-4 col-xs-7">{{employee.createdAt| date:'yyyy-MM-dd HH:mm'}}</div>
+      </div>
+      <div class="row">
+         <label class="col-md-3 col-xs-5">{{'employee-details.manager'|translate}}</label>
+         <div class="col-md-4 col-xs-7" ng-if="employee.manager">{{employee.manager.fullname}}</div>
+         <div class="col-md-4 col-xs-7" ng-if="!employee.manager">{{'employee-details.noManager'|translate}}</div>
+      </div>      
+   </div>
+</div>
+

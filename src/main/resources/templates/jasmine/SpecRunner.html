@@ -1,0 +1,252 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-3.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+   <head>
+      <meta charset="utf-8" />
+      <title>Jasmine Spec Runner v2.1.3</title>
+
+      <link type="image/png" th:href="@{/webjars/jasmine/2.1.3/jasmine_favicon.png}"/>
+      <link rel="stylesheet" th:href="@{/webjars/jasmine/2.1.3/jasmine.css}"/>
+
+      <script th:src="@{/webjars/jasmine/2.1.3/jasmine.js}" />
+      <script th:src="@{/webjars/jasmine/2.1.3/jasmine-html.js}" />
+      <script th:src="@{/webjars/jasmine/2.1.3/boot.js}" /> 
+
+      <script th:src="@{/webjars/jquery/2.1.1/jquery.min.js}" />
+      <script th:src="@{/webjars/bootstrap/3.2.0/js/bootstrap.min.js}" />
+      <script th:src="@{/webjars/bootstrap-switch/3.2.2/js/bootstrap-switch.min.js}" />
+      <script th:src="@{/webjars/angularjs/1.4.3/angular.min.js}" />
+      <script th:src="@{/webjars/angularjs/1.4.3/angular-resource.min.js}" />
+      <script th:src="@{/webjars/angularjs/1.4.3/angular-route.min.js}" />
+      <script th:src="@{/webjars/angularjs/1.4.3/angular-animate.min.js}" />
+      <script th:src="@{/webjars/angularjs/1.4.3/angular-mocks.js}" />
+      <script th:src="@{/webjars/angular-ui-bootstrap/0.13.3/ui-bootstrap-tpls.min.js}" />
+      <script th:src="@{/webjars/angular-ui-router/0.2.15/angular-ui-router.min.js}" />
+      <script th:src="@{/webjars/angular-multi-select/4.0.0/isteven-multi-select.js}" />
+      <script th:src="@{/webjars/angularjs-toaster/0.4.7/toaster.js}" />
+      <script th:src="@{/webjars/momentjs/2.7.0/min/moment.min.js}" />
+      <script th:src="@{/webjars/stacktrace/0.6.0/stacktrace.js}" />
+      <script th:src="@{/webjars/angular-xeditable/0.1.9/js/xeditable.min.js}" />
+      <script th:src="@{/webjars/angular-bootstrap-switch/0.3.0/angular-bootstrap-switch.min.js}" />
+      <script th:src="@{/webjars/angular-dateparser/1.0.9/angular-dateparser.min.js}" />
+      <script th:src="@{/webjars/angular-swagger-ui/0.1.3/dist/scripts/swagger-ui.js}" />
+      <script th:src="@{/webjars/angular-cookies/1.4.3/angular-cookies.min.js}" />
+      <script th:src="@{/webjars/angular-sanitize/1.4.3/angular-sanitize.min.js}" />
+      <script th:src="@{/webjars/angular-translate/2.7.2/dist/angular-translate.min.js}" />
+      <script th:src="@{/webjars/angular-translate-loader-partial/2.7.2/angular-translate-loader-partial.min.js}" />
+      <script th:src="@{/webjars/ng-tags-input/2.3.0/ng-tags-input.min.js}" />
+      <script th:src="@{/webjars/angular-breadcrumb/0.4.0/dist/angular-breadcrumb.min.js}" />
+
+      <script th:src="@{/js/mystartupapp/jquery-file-upload-5.41.0/jquery.ui.widget.js}" />
+      <script th:src="@{/js/mystartupapp/jquery-file-upload-5.41.0/jquery.iframe-transport.js}" />
+      <script th:src="@{/js/mystartupapp/jquery-file-upload-5.41.0/jquery.fileupload.js}" />
+
+      <script th:src="@{/js/app.js}" />
+      <script th:src="@{/js/app.config.js}" />
+
+	  <script th:src="@{/js/action/action.service.js}" />
+	  <script th:src="@{/js/action/action-constants.service.js}" />
+	  <script th:src="@{/js/action/actionUtil.service.js}" />
+	  <script th:src="@{/js/action/actionWizard.controller.js}" />
+	  <script th:src="@{/js/action/actionWizard.service.js}" />
+
+      <script th:src="@{/js/authenticationUnit/authenticationUnit-add.controller.js}" />
+      <script th:src="@{/js/authenticationUnit/authenticationUnit-details.controller.js}" />
+      <script th:src="@{/js/authenticationUnit/authenticationUnit-edit.controller.js}" />
+      <script th:src="@{/js/authenticationUnit/authenticationUnit-list.controller.js}" />
+      <script th:src="@{/js/authenticationUnit/authenticationUnit.route.js}" />
+      <script th:src="@{/js/authenticationUnit/authenticationUnit.service.js}" />
+      <script th:src="@{/js/authenticationUnit/authenticationUnit-disable-modal.controller.js}" />
+      <script th:src="@{/js/authenticationUnit/authenticationUnit-enable-modal.controller.js}" />
+      <script th:src="@{/js/authenticationUnit/authenticationUnitUtil.service.js}" />
+
+      <script th:src="@{/js/closedQuestion/closedQuestion-delete-modal.controller.js}" />
+      <script th:src="@{/js/closedQuestion/closedQuestion-details.controller.js}" />
+      <script th:src="@{/js/closedQuestion/closedQuestion-form.service.js}" />
+      <script th:src="@{/js/closedQuestion/closedQuestion-history.controller.js}" />
+      <script th:src="@{/js/closedQuestion/closedQuestion-history-modal.controller.js}" />
+      <script th:src="@{/js/closedQuestion/closedQuestion-list.controller.js}" />
+      <script th:src="@{/js/closedQuestion/closedQuestion-list.filter.js}" />
+      <script th:src="@{/js/closedQuestion/closedQuestion.route.js}" />
+      <script th:src="@{/js/closedQuestion/closedQuestion.service.js}" />
+
+      <script th:src="@{/js/comment/comment.service.js}" />
+
+      <script th:src="@{/js/dailyTip/dailyTip.service.js}" />
+      <script th:src="@{/js/dailyTip/dailyTip-add.controller.js}" />
+      <script th:src="@{/js/dailyTip/dailyTip-delete-modal.controller.js}" />
+      <script th:src="@{/js/dailyTip/dailyTip-edit.controller.js}" />
+      <script th:src="@{/js/dailyTip/dailyTip-list.controller.js}" />
+      <script th:src="@{/js/dailyTip/dailyTip-list.filter.js}" />
+      <script th:src="@{/js/dailyTip/dailyTip.route.js}" />
+      
+      <script th:src="@{/js/date/date.service.js}" />
+      <script th:src="@{/js/date/day-of-week.directive.js}" />
+      <script th:src="@{/js/date/days-remain.directive.js}" />
+      
+      <script th:src="@{/js/documentation/documentationApi.controller.js}" /> 
+      <script th:src="@{/js/documentation/documentation.route.js}" />
+
+      <script th:src="@{/js/employee/action/employeeAction-details.controller.js}" />
+      <script th:src="@{/js/employee/action/employeeAction-list.controller.js}" />
+      <script th:src="@{/js/employee/action/employeeAction-list.filter.js}" />
+      <script th:src="@{/js/employee/action/employeeAction.route.js}" />
+      <script th:src="@{/js/employee/employee-common.controller.js}" />
+      <script th:src="@{/js/employee/employee-details.controller.js}" />
+      <script th:src="@{/js/employee/employee-list.controller.js}" />
+      <script th:src="@{/js/employee/employee-list.filter.js}" />
+      <script th:src="@{/js/employee/employee.route.js}" />
+      <script th:src="@{/js/employee/employee.service.js}" />
+      <script th:src="@{/js/employee/employeeResolveUtil.service.js}" />
+      <script th:src="@{/js/employee/loggedEmployee.service.js}" />
+      
+      <script th:src="@{/js/employee/training/employee-training-details.controller.js}" />
+      <script th:src="@{/js/employee/training/employee-training-list.controller.js}" />
+      <script th:src="@{/js/employee/training/employee-training.route.js}" />
+      <script th:src="@{/js/employee/training/employee-training.service.js}" />
+
+      <script th:src="@{/js/employee/performance/employee-performance-add.controller.js}" />
+      <script th:src="@{/js/employee/performance/employee-performance-change.controller.js}" />
+      <script th:src="@{/js/employee/performance/employee-performance.controller.js}" />
+      <script th:src="@{/js/employee/performance/employee-performance.route.js}" />
+
+	  <script th:src="@{/js/employeeSurveyStat/employeeSurveyStat-list.controller.js}" />
+	  <script th:src="@{/js/employeeSurveyStat/employeeSurveyStat-list.filter.js}" />
+	  <script th:src="@{/js/employeeSurveyStat/employeeSurveyStat.service.js}" />
+	  <script th:src="@{/js/employeeSurveyStat/employeeSurveyStat.route.js}" />
+	  
+      <script th:src="@{/js/feature/feature-details.controller.js}" />
+      <script th:src="@{/js/feature/feature-list.controller.js}" />
+      <script th:src="@{/js/feature/feature-list.filter.js}" />
+      <script th:src="@{/js/feature/feature.route.js}" />
+      <script th:src="@{/js/feature/feature.service.js}" />
+
+      <script th:src="@{/js/file/file.service.js}" />
+      <script th:src="@{/js/file/fileUtil.service.js}" />
+      
+      <script th:src="@{/js/health/health-list.controller.js}" />
+      <script th:src="@{/js/health/health.route.js}" />
+      <script th:src="@{/js/health/health.service.js}" />
+
+	  <script th:src="@{/js/link/linkCreator.controller.js}" />
+	  <script th:src="@{/js/link/linkCreator.service.js}" />
+
+      <script th:src="@{/js/log/errorLog.service.js}" />
+      <script th:src="@{/js/log/logToServerUtil.service.js}" />
+      <script th:src="@{/js/log/logger.service.js}" />
+
+      <script th:src="@{/js/metric/metric-list.controller.js}" />
+      <script th:src="@{/js/metric/metric.service.js}" />
+      <script th:src="@{/js/metric/metric.route.js}" /> 
+      
+      <script th:src="@{/js/question/question-search.controller.js}" />
+      <script th:src="@{/js/question/question-list.filter.js}" />
+      <script th:src="@{/js/question/question.route.js}" />
+      <script th:src="@{/js/question/question.service.js}" />
+	  <script th:src="@{/js/question/questionFinder.controller.js}" />
+      <script th:src="@{/js/question/questionFinder.service.js}" />
+      <script th:src="@{/js/question/questionWizard.controller.js}" />
+	  <script th:src="@{/js/question/questionWizard.service.js}" />
+	  <script th:src="@{/js/question/questionUtil.service.js}" />
+	  <script th:src="@{/js/question/tag.service.js}" /> 
+	  
+	  <script th:src="@{/js/questionnaireTemplate/questionnaireTemplate-add.controller.js}" />
+	  <script th:src="@{/js/questionnaireTemplate/questionnaireTemplate-assignedQuestion.filter.js}" />
+	  <script th:src="@{/js/questionnaireTemplate/questionnaireTemplate-copy-modal.controller.js}" />
+	  <script th:src="@{/js/questionnaireTemplate/questionnaireTemplate-copy.service.js}" />
+	  <script th:src="@{/js/questionnaireTemplate/questionnaireTemplate-details.controller.js}" />
+	  <script th:src="@{/js/questionnaireTemplate/questionnaireTemplate-list.controller.js}" />
+	  <script th:src="@{/js/questionnaireTemplate/questionnaireTemplate-list.filter.js}" />
+	  <script th:src="@{/js/questionnaireTemplate/questionnaireTemplate-questionView.directive.js}" />
+	  <script th:src="@{/js/questionnaireTemplate/questionnaireTemplate.route.js}" />
+	  <script th:src="@{/js/questionnaireTemplate/questionnaireTemplate.service.js}" />
+	  <script th:src="@{/js/questionnaireTemplate/questionnaireTemplateUtil.service.js}" />
+
+      <script th:src="@{/js/place/place-list.controller.js}" />
+      <script th:src="@{/js/place/place-add.controller.js}" />
+      <script th:src="@{/js/place/place-edit.controller.js}" />
+      <script th:src="@{/js/place/place-delete-Modal.controller.js}" />
+      <script th:src="@{/js/place/place.route.js}" /> 
+      <script th:src="@{/js/place/place.service.js}" />
+      <script th:src="@{/js/place/placeUtil.service.js}" />
+      
+      <script th:src="@{/js/openQuestion/openQuestion-delete-modal.controller.js}" />
+      <script th:src="@{/js/openQuestion/openQuestion-details.controller.js}" />
+      <script th:src="@{/js/openQuestion/openQuestion-form.service.js}" />
+      <script th:src="@{/js/openQuestion/openQuestion-history-modal.controller.js}" />
+      <script th:src="@{/js/openQuestion/openQuestion-history.controller.js}" />
+      <script th:src="@{/js/openQuestion/openQuestion-list.controller.js}" />
+      <script th:src="@{/js/openQuestion/openQuestion-list.filter.js}" />
+      <script th:src="@{/js/openQuestion/openQuestion.route.js}" />
+      <script th:src="@{/js/openQuestion/openQuestion.service.js}" />
+
+      <script th:src="@{/js/performance/performance-matrix.controller.js}" />
+      <script th:src="@{/js/performance/performance-matrix.filter.js}" />
+      <script th:src="@{/js/performance/performance-list.controller.js}" />
+      <script th:src="@{/js/performance/performance-list.filter.js}" />
+      <script th:src="@{/js/performance/performance-tails.controller.js}" />
+      <script th:src="@{/js/performance/performance-tails.filter.js}" />
+      <script th:src="@{/js/performance/performance.route.js}" />
+      <script th:src="@{/js/performance/performance.service.js}" />
+      
+      <script th:src="@{/js/survey/survey-constants.service.js}" />
+      <script th:src="@{/js/survey/survey-details.controller.js}" />
+      <script th:src="@{/js/survey/survey-list.controller.js}" />
+      <script th:src="@{/js/survey/survey-generating.service.js}" />
+      <script th:src="@{/js/survey/survey-list.filter.js}" />
+      <script th:src="@{/js/survey/survey-wizard.controller.js}" />
+      <script th:src="@{/js/survey/survey-wizard.service.js}" />
+      <script th:src="@{/js/survey/survey.route.js}" />
+      <script th:src="@{/js/survey/survey.service.js}" />
+      <script th:src="@{/js/survey/surveyEmployee.directive.js}" />
+      <script th:src="@{/js/survey/surveySubmitConfirm-modal.controller.js}" />
+      <script th:src="@{/js/survey/surveyUtil.service.js}" />
+      
+      <script th:src="@{/js/trueFalseQuestion/trueFalseQuestion.service.js}" />
+      <script th:src="@{/js/trueFalseQuestion/trueFalseQuestion-delete-modal.controller.js}" />
+      <script th:src="@{/js/trueFalseQuestion/trueFalseQuestion-details.controller.js}" />
+      <script th:src="@{/js/trueFalseQuestion/trueFalseQuestion-form.service.js}" />
+      <script th:src="@{/js/trueFalseQuestion/trueFalseQuestion-history.controller.js}"/>
+      <script th:src="@{/js/trueFalseQuestion/trueFalseQuestion-history-modal.controller.js}"/>
+      <script th:src="@{/js/trueFalseQuestion/trueFalseQuestion-list.controller.js}" />
+      <script th:src="@{/js/trueFalseQuestion/trueFalseQuestion-list.filter.js}" />
+      <script th:src="@{/js/trueFalseQuestion/trueFalseQuestion.route.js}" /> 
+	  
+	  <script th:src="@{/js/goal/goal.service.js}" />
+	  <script th:src="@{/js/goal/task.service.js}" />
+      <script th:src="@{/js/goal/goal-add-modal.controller.js}" />
+      <script th:src="@{/js/goal/goal-list.controller.js}" />
+      <script th:src="@{/js/goal/goal.route.js}" />
+      <script th:src="@{/js/goal/goalUtil.service.js}" />
+      <script th:src="@{/js/goal/goal-details.controller.js}" />
+      <script th:src="@{/js/goal/task-details.controller.js}" />
+      <script th:src="@{/js/goal/task-add-modal.controller.js}" /> 
+      <script th:src="@{/js/goal/goal-mark-as-delete.modal.controller.js}" /> 
+      <script th:src="@{/js/goal/task-delete-modal.controller.js}" />
+      <script th:src="@{/js/goal/goal-history-modal.controller.js}" />
+      
+      <script th:src="@{/js/sharedKernel/forceFocus.directive.js}" />
+      <script th:src="@{/js/sharedKernel/commonUtil.service.js}" />
+      <script th:src="@{/js/sharedKernel/popup.service.js}" />
+      <script th:src="@{/js/sharedKernel/dateTimePicker.directive.js}" />
+      <script th:src="@{/js/sharedKernel/enterPress.directive.js}" />
+      <script th:src="@{/js/sharedKernel/languageFlag.directive.js}" />
+      <script th:src="@{/js/sharedKernel/languageStorage.service.js}" />
+      <script th:src="@{/js/sharedKernel/languageUtil.service.js}" />
+      <script th:src="@{/js/sharedKernel/navbar.controller.js}" />
+      <script th:src="@{/js/sharedKernel/parseName.directive.js}" />
+      <script th:src="@{/js/sharedKernel/performanceLabel.directive.js}" />
+      <script th:src="@{/js/sharedKernel/potentialLabel.directive.js}" />
+      <script th:src="@{/js/sharedKernel/sessionExpired-modal.controller.js}" />
+
+      <!--include spec files here...--> 
+
+      <script th:src="@{/js/date/date.service.spec.js}"/>
+      <script th:src="@{/js/survey/survey-generating.service.spec.js}"/>
+
+   </head>
+
+   <body>
+   </body>
+</html>

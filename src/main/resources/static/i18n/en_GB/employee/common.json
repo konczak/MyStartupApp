@@ -1,0 +1,14 @@
+{
+   "employee-common": {
+      "label":{
+         "actions": "Actions",
+         "details":"Details",
+         "surveys":"Surveys",
+         "meetings":"Meetings",
+         "goals":"Goals",
+         "performance":"Performance",
+         "cvOnline":"CV Online",
+         "trainings":"Trainings"
+      }
+   }
+}

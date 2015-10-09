@@ -1,0 +1,54 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-3.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+   <head>
+      <title th:text="${title}">Error</title>
+
+      <meta charset="utf-8"/>
+      <meta name="description" content=""/>
+      <meta name="author" content="Konczak Piotr"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+
+      <link  rel="stylesheet" media="screen"
+             href="#"
+             th:href="@{/webjars/bootswatch-spacelab/3.2.0/css/bootstrap.min.css}" />
+      <link  rel="stylesheet" media="screen"
+             href="#"
+             th:href="@{/webjars/font-awesome/4.4.0/css/font-awesome.min.css}" />
+      <link rel="stylesheet" media="screen"
+            th:href="@{/css/main.css}"
+            href="../../static/css/main.css" />
+      <link rel="stylesheet" media="screen"
+            th:href="@{/css/error.css}"
+            href="../../static/css/error.css" />
+   </head>
+   <body>
+      <div layout:fragment="header">
+         <center>
+            <h2 th:text="#{error_404_title}" class="error">404 Error</h2>
+         </center>
+      </div>
+      <div layout:fragment="content">
+         <center>
+            <h2 th:text="#{error_404_text}" class="error"> Sorry, wrong path ;( </h2>
+            <br/>
+            <br/>
+            <img class="error-image img-responsive" src="../../../static/img/planer_logo.png"  th:src="@{/img/planer_logo.png}"  alt="Logo"/> 
+            <br/>
+            <br/>
+            <a class="btn error-button" href="/MyStartupApp/"
+               th:text="#{security_go_list}">
+               Close
+            </a>
+         </center>
+         
+         <div th:include="fragments/footerPublic">
+            FOOTER
+         </div>
+      </div>
+
+
+   </body>
+</html>

@@ -1,0 +1,92 @@
+<h3>
+   <span translate="questionnaireTemplate-add.label.new">
+      New Questionnaire Template
+   </span>
+</h3>
+<br/>
+<form method="post" class="form-horizontal"
+      role="form" action="..." name="questionnaireTemplateForm">
+   <div class="form-group">
+      <span class="col-sm-2 text-right">
+         <label for="option" class=" control-label"
+                translate="questionnaireTemplate-add.language">Language</label>
+         <label>
+            <span class="text-danger">*</span>
+         </label>
+      </span>
+      <div class="col-sm-4">
+         <select class="form-control"
+                name="language" 
+                required="true"
+            	ng-model="questionnaireTemplate.language" >
+            <option value="pl-PL" translate="questionnaireTemplate-add.language.polish"></option>
+            <option value="en-GB" translate="questionnaireTemplate-add.language.english"></option>
+         </select>
+      </div>
+      <div class="col-sm-4">
+         <div language-flag="questionnaireTemplate.language"></div>
+      </div>
+   </div>
+   
+   <div class="form-group" 
+   		ng-class="{'has-success':andOperator(questionnaireTemplateForm.name.$valid,questionnaireTemplateForm.name.$dirty),
+               'has-error':andOperator(questionnaireTemplateForm.name.$invalid,questionnaireTemplateForm.name.$dirty)}">
+      <span class="col-sm-2 text-right">
+         <label for="option" class=" control-label"
+                translate="questionnaireTemplate-add.label.name">Name</label>
+         <label>
+            <span class="text-danger">*</span>
+         </label>
+      </span>
+      <div class="col-sm-8">
+         <textarea
+                class="form-control"
+                name="name" 
+                required="true"
+                ng-attr-placeholder="{{'questionnaireTemplate-add.label.name'|translate}}"
+                ng-model="questionnaireTemplate.name"
+                ng-minlength="{{constant.nameMin}}"
+                ng-maxlength="{{constant.nameMax}}"
+                ng-change="validationErrors.duplicatedName = false" 
+                force-focus="true" ></textarea>
+
+         <p class="error text-danger"
+            ng-show="questionnaireTemplateForm.name.$error.maxlength"
+            translate="questionnaireTemplate-add.validator.name.tooLong"
+            translate-values="{max:'{{constant.nameMax}}'}">Name is too long</p>
+
+         <p class="error text-danger"
+            ng-show="questionnaireTemplateForm.name.$error.minlength"
+            translate="questionnaireTemplate-add.validator.name.tooShort"
+            translate-values="{min:'{{constant.nameMin}}'}">Name is too short</p>
+            
+         <p class="error text-danger"
+            ng-show="andOperator(questionnaireTemplateForm.name.$error.required, questionnaireTemplateForm.name.$dirty)"
+            translate="questionnaireTemplate-add.validator.name.required">Name is required</p>
+            
+         <p class="error text-danger"
+            ng-show="validationErrors.duplicatedName"
+            translate="questionnaireTemplate-add.validator.name.duplicated">Questionnaire Template with given name already exists</p>
+      </div>
+   </div>
+
+   <div class="row">
+      <div class="col-md-11">
+         <button type="button"  
+                 class="btn btn-primary btn-lg pull-right" 
+                 ng-attr-title="{{'questionnaireTemplate-add.button.save'|translate}}"
+                 ng-click="saveQuestionnaireTemplate()" 
+                 ng-disabled="questionnaireTemplateForm.$invalid">
+
+            <i class="fa fa-save"></i>
+            <span translate="questionnaireTemplate-add.button.save">Save</span>
+         </button>
+      </div>
+      <div class="col-md-1">  
+         <a ui-sref="questionnaireTemplate.list" ng-attr-title="{{'questionnaireTemplate-add.button.cancel'|translate}}" class="btn btn-default pull-right">
+            <i class="fa fa-undo"></i>
+            <span translate="questionnaireTemplate-add.button.cancel">Cancel</span>
+         </a>
+      </div>
+   </div>
+</form>

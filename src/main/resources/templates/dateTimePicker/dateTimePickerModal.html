@@ -1,0 +1,167 @@
+<div id="datepicker-body" class="modal-body">
+
+	<div class="row" ng-if="pickType === 'date' || pickType === 'datetime'">
+
+		<div class="col-xs-12 col-sm-7">
+			<div class="btn-group input-group">
+				<div class="input-group-btn">
+					<button class="btn btn-default"
+							ng-click="minusMonth()"
+							ng-disabled="calendar.month === constraints.dateMin.getMonth() &amp;&amp; calendar.year === constraints.dateMin.getFullYear()">
+							<span class="glyphicon glyphicon-chevron-left"></span>
+					</button>
+				</div>
+
+				<div id="datepicker-month-select" class="btn-group"
+					ng-init="allMonths[0] = {num: 0, name: 'stycz'}">
+					<button type="button"
+							class="btn btn-default btn-block dropdown-toggle"
+							data-toggle="dropdown"
+							aria-haspopup="true"
+							aria-expanded="true">
+						<span ng-switch="calendar.month">
+							<span ng-switch-when="0">{{'dateTimePicker.month.january' | translate}}</span>
+							<span ng-switch-when="1">{{'dateTimePicker.month.february' | translate}}</span>
+							<span ng-switch-when="2">{{'dateTimePicker.month.march' | translate}}</span>
+							<span ng-switch-when="3">{{'dateTimePicker.month.april' | translate}}</span>
+							<span ng-switch-when="4">{{'dateTimePicker.month.may' | translate}}</span>
+							<span ng-switch-when="5">{{'dateTimePicker.month.june' | translate}}</span>
+							<span ng-switch-when="6">{{'dateTimePicker.month.july' | translate}}</span>
+							<span ng-switch-when="7">{{'dateTimePicker.month.august' | translate}}</span>
+							<span ng-switch-when="8">{{'dateTimePicker.month.september' | translate}}</span>
+							<span ng-switch-when="9">{{'dateTimePicker.month.october' | translate}}</span>
+							<span ng-switch-when="10">{{'dateTimePicker.month.november' | translate}}</span>
+							<span ng-switch-when="11">{{'dateTimePicker.month.december' | translate}}</span>
+						</span>
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+						<li>
+							<a href="" ng-click="setMonth(0)" ng-show="months[0]">{{'dateTimePicker.month.january' | translate}}</a>
+							<a href="" ng-click="setMonth(1)" ng-show="months[0]">{{'dateTimePicker.month.february' | translate}}</a>
+							<a href="" ng-click="setMonth(2)" ng-show="months[0]">{{'dateTimePicker.month.march' | translate}}</a>
+							<a href="" ng-click="setMonth(3)" ng-show="months[0]">{{'dateTimePicker.month.april' | translate}}</a>
+							<a href="" ng-click="setMonth(4)" ng-show="months[0]">{{'dateTimePicker.month.may' | translate}}</a>
+							<a href="" ng-click="setMonth(5)" ng-show="months[0]">{{'dateTimePicker.month.june' | translate}}</a>
+							<a href="" ng-click="setMonth(6)" ng-show="months[0]">{{'dateTimePicker.month.july' | translate}}</a>
+							<a href="" ng-click="setMonth(7)" ng-show="months[0]">{{'dateTimePicker.month.august' | translate}}</a>
+							<a href="" ng-click="setMonth(8)" ng-show="months[0]">{{'dateTimePicker.month.september' | translate}}</a>
+							<a href="" ng-click="setMonth(9)" ng-show="months[0]">{{'dateTimePicker.month.october' | translate}}</a>
+							<a href="" ng-click="setMonth(10)" ng-show="months[0]">{{'dateTimePicker.month.november' | translate}}</a>
+							<a href="" ng-click="setMonth(11)" ng-show="months[0]">{{'dateTimePicker.month.december' | translate}}</a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="input-group-btn">
+					<button class="btn btn-default"
+							ng-click="plusMonth()"
+							ng-disabled="calendar.month === constraints.dateMax.getMonth() &amp;&amp; calendar.year === constraints.dateMax.getFullYear()">
+							<span class="glyphicon glyphicon-chevron-right"></span>
+					</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-xs-12 col-sm-5">
+			<div class="btn-group input-group">
+				<div class="input-group-btn">
+					<button class="btn btn-default"
+							ng-click="minusYear()"
+							ng-disabled="calendar.year === constraints.dateMin.getFullYear()">
+						<span class="glyphicon glyphicon-chevron-left"></span>
+					</button>
+				</div>
+
+				<div id="datepicker-year-select" class="btn-group">
+					<button type="button"
+							class="btn btn-default btn-block dropdown-toggle"
+							data-toggle="dropdown"
+							aria-haspopup="true"
+							aria-expanded="true">
+						{{calendar.year}}
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+						<li ng-repeat="year in years">
+							<a href="#" ng-click="setYear(year)">{{year}}</a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="input-group-btn">
+					<button class="btn btn-default"
+							ng-click="plusYear()"
+							ng-disabled="calendar.year === constraints.dateMax.getFullYear()">
+						<span class="glyphicon glyphicon-chevron-right"></span>
+					</button>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="row">
+		<div id="datepicker-calendar-wrapper"
+			 class="col-xs-12"
+			 ng-class="{'col-sm-8': pickType === 'datetime'}"
+			 ng-if="pickType === 'date' || pickType === 'datetime'">
+
+			<div dtp-calendar=""
+				 ng-model="date.selectedDay"
+				 calendar-month="calendar.month"
+				 calendar-year="calendar.year"
+				 date-min="constraints.dateMin"
+				 date-max="constraints.dateMax"
+				 show-week-numbers="constraints.showWeekNumbers"></div>
+
+		</div><!--
+
+		--><div id="datepicker-time"
+				class="col-xs-12 text-center"
+				ng-class="{'col-sm-4': pickType === 'datetime'}"
+				ng-if="pickType === 'time' || pickType === 'datetime'">
+
+			<div dtp-timer=""
+				 ng-model="date.selectedTime"
+				 hour-min="{{constraints.hourMin}}"
+				 hour-max="{{constraints.hourMax}}"
+				 minute-step="{{constraints.minuteStep}}"></div>
+
+		</div>
+	</div>
+
+</div>
+
+<div class="modal-footer datepicker-buttons">
+	<div class="row">
+		<div class="col-xs-6 col-sm-3 text-left">
+			<button class="btn btn-block btn-info"
+					ng-click="jumpToToday()"
+					ng-if="pickType === 'date' || pickType === 'datetime'">
+				{{'dateTimePicker.button.today' | translate}}
+			</button>
+		</div>
+		<div class="col-xs-6 col-sm-2 text-left">	
+			<button class="btn btn-block btn-info"
+					ng-click="clear()"
+					ng-if="!constraints.required &amp;&amp; (pickType === 'date' || pickType === 'datetime')">
+				{{'dateTimePicker.button.clear' | translate}}
+			</button>
+		</div>
+
+		<div class="col-xs-12 col-sm-3 col-sm-offset-1">
+			<button class="btn btn-primary btn-block"
+					ng-click="confirm()">
+					<i class="fa fa-check"></i> {{'dateTimePicker.button.confirm' | translate}}
+			</button>
+		</div>
+
+		<div class="col-xs-12 col-sm-3">
+			<button class="btn btn-default btn-block"
+					ng-click="cancel()">
+					<i class="fa fa-undo"></i> {{'dateTimePicker.button.cancel' | translate}}
+			</button>
+		</div>
+	</div>
+</div>

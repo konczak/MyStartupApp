@@ -1,0 +1,48 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-3.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <title>Swagger UI</title>
+
+      <link media="screen"
+            rel="stylesheet" 
+            th:href="@{/css/swagger-reset.css}"/>
+      <link media="screen"
+            rel="stylesheet"
+            th:href="@{/css/swagger-screen.css}"/>
+
+      <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css"/>
+   </head>
+
+   <body class="swagger-section">
+      <div id="header">
+         <div class="swagger-ui-wrap">
+            <a id="logo" href="http://swagger.wordnik.com">swagger</a>
+            <form id='api_selector'>
+               <div class="input"><input placeholder="http://example.com/api" id="input_baseUrl" name="baseUrl" type="text" size="40"/></div>
+               <div class='input'><input placeholder="Authorization header value" id="input_authorizationKey" name="authorizationToken" type="text" size="40"/></div>
+               <div class="input"><a id="explore" href="#">Explore</a></div>
+            </form>
+         </div>
+      </div>
+
+      <div id="message-bar" class="swagger-ui-wrap">&nbsp;</div>
+      <div id="swagger-ui-container" class="swagger-ui-wrap"></div>
+
+      <script th:src="@{/js/mystartupapp/swagger-ui-2.0.17/shred.bundle.js}"/>
+      <script th:src="@{/js/mystartupapp/swagger-ui-2.0.17/jquery-1.8.0.min.js}"/>
+      <script th:src="@{/js/mystartupapp/swagger-ui-2.0.17/jquery.slideto.min.js}"/>
+      <script th:src="@{/js/mystartupapp/swagger-ui-2.0.17/jquery.wiggle.min.js}"/>
+      <script th:src="@{/js/mystartupapp/swagger-ui-2.0.17/jquery.ba-bbq.min.js}"/>
+      <script th:src="@{/js/mystartupapp/swagger-ui-2.0.17/handlebars-1.0.0.js}"/>
+      <script th:src="@{/js/mystartupapp/swagger-ui-2.0.17/underscore-min.js}"/>
+      <script th:src="@{/js/mystartupapp/swagger-ui-2.0.17/backbone-min.js}"/>
+      <script th:src="@{/js/mystartupapp/swagger-ui-2.0.17/swagger.js}"/>
+      <script th:src="@{/js/mystartupapp/swagger-ui-2.0.17/swagger-ui.js}"/>
+      <script th:src="@{/js/mystartupapp/swagger-ui-2.0.17/highlight.7.3.pack.js}"/>
+      <script th:src="@{/js/mystartupapp/swagger-ui-2.0.17/highlight.7.3.pack.js}"/>
+
+      <script th:src="@{/js/mystartupapp/swagger.js}"/>
+
+   </body>
+</html>

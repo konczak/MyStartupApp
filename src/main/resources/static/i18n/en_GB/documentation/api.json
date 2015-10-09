@@ -1,0 +1,12 @@
+{
+   "documentation-api": {
+      "popup": {
+         "load": {
+            "failure": {
+               "body": "Could not load Api Documentation",
+               "title": "Failure"
+            }
+         }
+      }
+   }
+}

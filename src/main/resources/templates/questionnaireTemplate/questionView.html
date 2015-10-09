@@ -1,0 +1,35 @@
+<div ng-if="question.collapsed">
+	<button class="btn btn-sm btn-default pull-right"
+			ng-click="expandQuestion(question)"
+			ng-attr-title="{{'questionnaireTemplate-details.button.expand'}}">
+		<i class="fa fa-angle-double-down fa-2x"></i>
+	</button>
+	 
+	<div class="row">
+		<span class="col-sm-2 text-right">
+		   <label for="option" class="control-label">
+		   	{{'questionnaireTemplate-details.label.question' | translate}}
+		   </label>
+		</span>
+		<div class="col-sm-8">
+		   {{question.question}}
+		</div>
+	</div> 
+</div>
+
+<div ng-if="!question.collapsed">
+	<button class="btn btn-sm btn-default pull-right"
+			ng-click="collapseQuestion(question)"
+			ng-attr-title="{{'questionnaireTemplate-details.button.collapse'}}">
+		<i class="fa fa-angle-double-up fa-2x"></i>
+	</button>
+
+	<div ng-if="question.type === 'OPEN_QUESTION'"
+		 th:include="openQuestion/detailsFragment"></div>
+		 
+	<div ng-if="question.type === 'CLOSED_QUESTION'"
+		 th:include="closedQuestion/detailsFragment"></div>
+		 
+	<div ng-if="question.type === 'TRUE_FALSE_QUESTION'"
+		 th:include="trueFalseQuestion/detailsFragment"></div>
+</div>

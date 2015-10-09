@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <property name="DESTINATION_FOLDER" value="/opt/mystartupapp/logs" />
+    <property name="FILE_NAME" value="MyStartupApp" />
+    
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${DESTINATION_FOLDER}/${FILE_NAME}.log</file>
+        <append>true</append>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--daily rollover-->
+            <fileNamePattern>${DESTINATION_FOLDER}/${FILE_NAME}.%d{yyyy-MM-dd}.log</fileNamePattern>
+        </rollingPolicy>
+    
+        <encoder>
+            <pattern>%-5level %date %-30thread %-30logger{30} [%-30mdc{userName:-NONE}] [%-10mdc{requestId:-NONE}] %msg%n</pattern>
+        </encoder>
+    </appender>
+    
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%-5level %date %-30thread %-30logger{30} [%-30mdc{userName:-NONE}] [%-10mdc{requestId:-NONE}] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="org.springframework" level="INFO" />
+    <logger name="org.hibernate" level="INFO"/>
+    <logger name="com.wordnik" level="INFO" />
+    <logger name="com.mangofactory" level="INFO" />
+    <logger name="pl.konczak.mystartupapp" level="INFO" />
+
+    <root level="INFO">
+        <appender-ref ref="FILE" />
+        <appender-ref ref="STDOUT" />
+    </root>
+</configuration>

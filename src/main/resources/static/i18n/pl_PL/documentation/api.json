@@ -1,0 +1,12 @@
+{
+   "documentation-api": {
+      "popup": {
+         "load": {
+            "failure": {
+               "body": "Nie udało się załadować dokumentacji aplikacji",
+               "title": "Porażka"
+            }
+         }
+      }
+   }
+}

@@ -1,0 +1,26 @@
+{
+   "employee-list": {
+      "label": {
+         "count": "Count of displayed employees: {{count}}",
+         "label": "Employees",
+         "loading": "Loading...",
+         "noData": "No available Employees",
+         "refresh": "Refresh Employees (uses LDAP)",
+         "employee": {
+            "firstname": "Firstname",
+            "lastname": "Lastname"
+         },
+         "title": {
+            "title": "Title",
+            "any": "Any"
+         },
+         "worker": {
+            "all": "All",
+            "deleted": "Deleted",
+            "deletedAt": "Employee fired",
+            "employees": "Workers",
+            "worker": "Worker"
+         }
+      }
+   }
+}

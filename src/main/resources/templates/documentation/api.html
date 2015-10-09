@@ -1,0 +1,48 @@
+<form name="urlForm"
+      ng-submit="urlForm.$valid &amp;&amp; (swaggerUrl = url)"
+      class="form-inline ng-pristine ng-valid ng-valid-url ng-valid-required">
+   <a class="btn btn-default"
+      href=""
+      role="button"
+      ng-click="switchApi(businessApi)">
+      <i class="fa fa-book"></i>
+      Business
+   </a>
+   <a class="btn btn-default"
+      href=""
+      role="button"
+      ng-click="switchApi(adminApi)">
+      <i class="fa fa-stethoscope"></i>
+      Admin
+   </a>
+   <input placeholder="swagger URL" 
+          class="form-control ng-pristine ng-valid ng-valid-url ng-valid-required ng-touched" 
+          id="url" 
+          name="url" 
+          ng-model="url" 
+          required="" 
+          type="text"
+          size="30"/>
+   <input placeholder="Authorization header value"
+          class="form-control ng-pristine ng-valid ng-valid-url ng-valid-required ng-touched" 
+          id="authorization"
+          name="authorization"
+          ng-model="authorization" 
+          required="" 
+          type="text"
+          size="50"/>
+   <button type="submit" class="btn btn-primary">
+      <i class="fa fa-search"></i>
+      Explore
+   </button>
+</form>
+
+
+<div swagger-ui=""
+     url="swaggerUrl"
+     api-explorer="true"
+     error-handler="myErrorHandler"
+     api-explorer-transform="myTransform"
+     try-it="true">
+
+</div>

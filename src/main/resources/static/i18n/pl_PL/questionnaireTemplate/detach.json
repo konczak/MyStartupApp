@@ -1,0 +1,20 @@
+{
+	"questionnaireTemplate-detach" : {
+		"button" : {
+			"cancel" : "Nie",
+			"detach" : "Tak"
+		},
+		"confirm" : "Czy na pewno chcesz odpiąć pytanie {{question}} od szablonu?",
+		"popup" : {
+			"failure" : {
+				"body" : "Nie udało się odpiąć pytania",
+				"title" : "Porażka"
+			},
+			"success" : {
+				"body" : "Pytanie zostało odpięte od szablonu",
+				"title" : "Odpięto"
+			}
+		},
+		"tip" : "Pytanie to zostanie odpięte tylko od tego szablonu. Nadal będzie przechowywane w bazie danych"
+	}
+}

@@ -1,0 +1,37 @@
+{
+   "questionnaireTemplate-add": {
+      "button": {
+         "cancel": "Anuluj",
+         "save": "Zapisz"
+      },
+      "label": {
+         "name": "Nazwa szablonu",
+         "new": "Utwórz szablon ankiety"
+      },
+      "language": {
+         "english": "angielski",
+         "language": "Język",
+         "polish": "polski"
+      },
+      "popup": {
+         "save": {
+            "failure": {
+               "body": "Nie udało się zapisać szablonu ankiety",
+               "title": "Porażka"
+            },
+            "success": {
+               "body": "Szablon ankiety został zapisany",
+               "title": "Zapisano"
+            }
+         }
+      },
+      "validator": {
+         "name": {
+            "duplicated": "Szablon ankiety z podaną nazwą już istnieje",
+            "required": "Nazwa jest wymagana",
+            "tooLong": "Nazwa jest za długa. Dopuszczalna długość to {{max}} znaków",
+            "tooShort": "Nazwa jest za krótka, wymagane co najmniej {{min}} znaków"
+         }
+      }
+   }
+}

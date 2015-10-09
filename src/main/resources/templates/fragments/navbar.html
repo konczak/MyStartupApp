@@ -1,0 +1,185 @@
+<nav class="navbar navbar-default" >
+   <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+         <button type="button"
+                 class="navbar-toggle collapsed"
+                 data-toggle="collapse"
+                 data-target="#toggle-app-links"
+                 aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+         </button>
+         <a class="navbar-brand"
+            href="https://inside.cybercom.com">
+            <img width="20px"
+                 height="20px"
+                 alt="Logo"
+                 th:src="@{/img/Logo_Blue.png}"/>
+         </a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse"
+           id="toggle-app-links">
+         <ul class="nav navbar-nav">
+            <li ui-sref-active="active">
+               <a ui-sref="employee.list({lastname: undefined, firstname: undefined, title: undefined, deleted: undefined})"
+                  sec:authorize="hasAnyRole('ROLE_HR')">
+                  <i class="fa fa-users"></i>
+                  <span translate="navbar.employee">Employees</span>
+               </a>
+            </li>
+            <li ui-sref-active="active">
+               <a ui-sref="questionnaireTemplate.list"
+                  sec:authorize="hasAnyRole('ROLE_HR')">
+                  <i class="fa fa-file-text-o fa-fw"></i>
+                  <span translate="navbar.questionnaireTemplate">Questionnaire Templates</span>
+               </a>
+            </li>
+            
+            <li class="dropdown"
+                sec:authorize="hasRole('ROLE_ADMIN')">
+               <a href=""
+                  class="dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false">
+                  <span class="glyphicon glyphicon-tower"></span>
+                  <span translate="navbar.menu.manage">Manage</span>
+                  <span class="caret"></span>
+               </a>
+               <ul class="dropdown-menu">
+                  <li role="presentation">                 
+                     <a ui-sref="metric.list"
+                        sec:authorize="hasRole('ROLE_ADMIN')">
+                        <i class="fa fa-bar-chart"></i>
+                        <span translate="navbar.metric">Metric</span>
+                     </a>
+                  </li>
+                  <li role="presentation">                 
+                     <a ui-sref="health.list"
+                        sec:authorize="hasRole('ROLE_ADMIN')">
+                        <i class="glyphicon glyphicon-heart"></i>
+                        <span translate="navbar.health">Health</span>
+                     </a>
+                  </li>
+                  <li role="presentation">                 
+                     <a target="_blank"
+                        th:href="@{/jasmine}"
+                        sec:authorize="hasRole('ROLE_ADMIN')">
+                        <i class="fa fa-user-md"></i>
+                        <span translate="navbar.jasmine">Jasmine tests</span>
+                     </a>
+                  </li>
+               </ul>
+            </li>
+         </ul>
+
+         <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+               <a href=""
+                  class="dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false">
+                  <img class="flag lang-pl" alt="PL"
+                       th:src="@{/img/blank.gif}"
+                       ng-if="activeLanguage === 'pl_PL'"/>
+                  <span ng-if="activeLanguage === 'pl_PL'"
+                        translate="navbar.language.polish">
+                     Polish
+                  </span>
+                  <img class="flag lang-en" alt="EN"
+                       th:src="@{/img/blank.gif}"
+                       ng-if="activeLanguage === 'en_GB'"/>
+                  <span ng-if="activeLanguage === 'en_GB'"
+                        translate="navbar.language.english">
+                     English
+                  </span>
+                  <span class="caret"></span>
+               </a>
+               <ul class="dropdown-menu">
+                  <li>
+                     <a class="clickable" ng-click="changeLanguage('pl_PL')">
+                        <img class="flag lang-pl" alt="PL"
+                             th:src="@{/img/blank.gif}"/>
+                        <span translate="navbar.language.polish">Polish</span>
+                     </a>
+                  </li>
+                  <li>
+                     <a class="clickable" ng-click="changeLanguage('en_GB')">
+                        <img class="flag lang-en" alt="EN"
+                             th:src="@{/img/blank.gif}"/>
+                        <span translate="navbar.language.english">English</span>
+                     </a>
+                  </li>
+               </ul>
+            </li>
+            <li class="dropdown">
+               <a href=""
+                  class="dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false">
+                  <i class="fa fa-question-circle text-info"></i>
+                  <span class="caret"></span>
+               </a>
+               <ul class="dropdown-menu">
+                  <li>
+                     <a target="_blank"
+                        th:href="${application.filesDownloadLocation + 'APPRON-Release-Notes.pdf'}">
+                        <i class="fa fa-list fa-fw"></i>
+                        <span translate="navbar.menu.releaseNotes">Release notes</span>
+                     </a>
+                  </li>
+                  <li>
+                     <a ui-sref="documentationApi">
+                        <i class="fa fa-book fa-fw"></i>
+                        <span translate="navbar.menu.api">API docs</span>
+                     </a>
+                  </li>
+               </ul>
+            </li>
+            <li sec:authorize="isAuthenticated()">
+               <p class="navbar-text">{{loggedEmployee.firstname}} {{loggedEmployee.lastname}}</p>
+            </li>
+            <li class="dropdown">
+               <a href=""
+                  class="dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false">
+                  <span>
+                     <img class="img-circle"
+                          width="20px"
+                          height="20px"
+                          th:attr="ng-src=@{/api/file/{{loggedEmployee.avatarId}}/image}" 
+                          ng-if="loggedEmployee.avatarId !== null"/>
+                  </span>
+                  <img class="img-circle"
+                       width="20px"
+                       height="20px"
+                       th:src="@{/img/default_photo.png}" 
+                       ng-if="loggedEmployee.avatarId === null"/>
+                  <span class="caret"></span>
+               </a>
+               <ul class="dropdown-menu">
+                  <li>
+                     <a th:href="@{/logout}">
+                        <i class="fa fa-sign-out fa-fw"></i>
+                        <span translate="navbar.menu.logout">Logout</span>
+                     </a>
+                  </li>
+               </ul>
+            </li>
+         </ul>
+      </div><!-- /.navbar-collapse -->
+   </div><!-- /.container-fluid -->
+</nav>

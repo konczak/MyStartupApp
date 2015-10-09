@@ -1,0 +1,19 @@
+.error-image { 
+   filter: gray;
+   filter: grayscale(1); 
+   -webkit-filter: grayscale(1);
+}
+
+.error {
+   color :grey;
+}
+
+.error-button { 
+   background-color:  grey; 
+   color: white;
+}
+
+hr.cybercom {
+    color:  grey; 
+    border-color: grey;
+}

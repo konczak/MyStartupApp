@@ -1,0 +1,37 @@
+{
+   "questionnaireTemplate-add": {
+      "button": {
+         "cancel": "Cancel",
+         "save": "Save"
+      },
+      "label": {
+         "name": "Template name",
+         "new": "Create Questionnaire Template"
+      },
+      "language": {
+         "english": "English",
+         "language": "Language",
+         "polish": "Polish"
+      },
+      "popup": {
+         "save": {
+            "failure": {
+               "body": "Could not save Questionnaire Template",
+               "title": "Failure"
+            },
+            "success": {
+               "body": "Questionnaire Template has been saved",
+               "title": "Saved"
+            }
+         }
+      },
+      "validator": {
+         "name": {
+            "duplicated": "Questionnaire Template with given name already exists",
+            "required": "Name is required",
+            "tooLong": "Name is too long, it should have maximum {{max}} characters",
+            "tooShort": "Name is too short, it should have at least {{min}} characters"
+         }
+      }
+   }
+}

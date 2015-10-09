@@ -1,0 +1,47 @@
+<div class="row">
+   <div class="col-md-3">
+      <div class="row">
+         <span class="col-md-3 col-xs-3 vertical-align-bottom">
+            <img class="employee-avatar"
+                 th:attr="ng-src=@{/api/file/{{employee.avatarId}}/image}" 
+                 ng-if="employee.avatarId !== null"
+                 />
+            <img class="employee-avatar"
+                 th:src="@{/img/default_photo.png}" 
+                 ng-if="employee.avatarId === null"
+                 />
+         </span>
+         <span class="col-md-9 col-xs-9 no-side-padding">
+            <label class="row medium-size-font">
+               {{employee.firstname}} {{employee.lastname}}
+            </label>
+            <div class="row">
+               {{employee.title}}
+            </div>
+         </span>
+      </div>
+   </div>
+   <div class="col-md-9 hidden-xs">
+      <ul class="nav nav-tabs pull-right nav-justified" role="tablist">
+         <li ui-sref-active="active">
+            <a role="tab"
+               ui-sref="employee.common.details">
+               <i class="fa fa-user"></i>
+               {{'employee-common.label.details'|translate}}</a>
+         </li>
+      </ul>
+   </div>
+</div>
+<div class="hidden-xs">
+   <div class="modal-body" ui-view=""></div>
+</div>
+
+<div class="visible-xs">
+   <accordion close-others="true">
+      <accordion-group heading="{{'employee-common.label.details'|translate}}"
+                       is-open="view.details"
+                       ui-sref="employee.common.details">
+         <div class="modal-body" ui-view="" ng-if="view.details"></div>
+      </accordion-group>
+   </accordion>
+</div>

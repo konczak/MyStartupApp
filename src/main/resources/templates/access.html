@@ -1,0 +1,51 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-3.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="layout/standard">
+   <head>
+      <title th:text="${title}">Access denied</title>
+
+      <meta charset="utf-8"/>
+      <meta name="description" content=""/>
+      <meta name="author" content="Konczak Piotr"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+      <link media="screen"
+            rel="stylesheet"
+            th:href="@{/webjars/bootswatch-spacelab/3.2.0/css/bootstrap.min.css}" />
+      <link media="screen"
+            rel="stylesheet"
+            th:href="@{/webjars/font-awesome/4.4.0/css/font-awesome.min.css}" />
+      <link media="screen"
+            rel="stylesheet"
+            th:href="@{/webjars/angular-multi-select/2.0.0/angular-multi-select.css}" />
+      <link media="screen"
+            rel="stylesheet"
+            th:href="@{/webjars/angularjs-toaster/0.4.7/toaster.css}" />
+      <link media="screen"
+            rel="stylesheet"
+            th:href="@{/css/dropzone.css}" />
+      <link media="screen"
+            rel="stylesheet"
+            th:href="@{webjars/angular-xeditable/0.1.9/css/xeditable.css}"/>
+      <link media="screen"
+            rel="stylesheet"
+            th:href="@{/css/main.css}"/>
+      <link rel="shortcut icon"
+            type="image/x-icon"
+            th:href="@{/img/favicon.png}"/>
+   </head>
+   <body>
+      <h1 layout:fragment="header"
+          th:text="${title}">
+         Access denied page
+      </h1>
+
+      <div layout:fragment="content">
+         <div class="alert alert-warning">
+            you do not have permission for that resource
+         </div>
+      </div>
+   </body>
+</html>

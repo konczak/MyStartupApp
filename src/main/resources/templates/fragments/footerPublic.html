@@ -1,0 +1,39 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-3.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Footer</title>
+        <meta charset="utf-8"/>
+        <meta name="description" content=""/>
+        <meta name="author" content="Konczak Piotr"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <link type="image/x-icon" href="/img/favicon.png" th:href="@{/img/favicon.png}" rel="shortcut icon"/>
+
+    </head>
+    <body>
+        <footer th:fragment="footer" >
+            <div class="container text-left" th:include="fragments/footerCommon">Common part of footer</div>
+            <div class="container">
+                <div style="clear: both">
+                    This System is for the use of authorized users only.
+                    Individuals using this computer system without
+                    authority, or in excess of their authority, are subject
+                    to having their activities on this system monitored and
+                    recorded by system personnel. In the course of
+                    monitoring individuals improperly using this system, or
+                    in the course of system maintenance, the activities of
+                    authorized users may also be monitored. Anyone using
+                    this system expressly consents to such monitoring and
+                    is advised that if such monitoring reveals possible
+                    criminal activity, system personnel may provide the
+                    evidence of such monitoring to law enforcement
+                    officals. This warning has been provided by the Poland
+                    Department of Justice and is intended to ensure that
+                    monitoring of user activity is not in violation of the
+                    Communications Privacy Act of 1986.
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,24 @@
+{
+   "questionnaireTemplate-list": {
+      "count": "Liczba wyświetlonych szablonów: {{count}}",
+      "noData": "Brak dostępnych szablonów ankiet",
+      "label": {
+         "title": "Szablony ankiet",
+         "add": "Utwórz szablon ankiety",
+         "name": "Nazwa szablonu",
+         "createdBy": "Utworzony przez",
+         "createdAt": "Utworzono",
+         "updatedAt": "Ostatnio zmodyfikowano",
+         "dateFrom":"Od",
+         "dateTo":"Do",
+         "language": "Język"
+      },
+      "dropdown": {
+         "language": {
+            "all": "wszystkie",
+            "english": "angielski",
+            "polish": "polski"
+         }
+      }
+   }
+}

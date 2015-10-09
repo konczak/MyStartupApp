@@ -1,0 +1,21 @@
+{
+   "health-list": {
+      "button":{
+         "refresh":"Odśwież"
+      },
+      "label": {
+         "database":"Baza danych",
+         "diskspace":"Przestrzeń dyskowa",
+         "ldap":"LDAP",
+         "mail":"Email",
+         "name":"Nazwa usługi",
+         "stacktrace":"Stacktrace",
+         "status":{
+            "down":"NIESPRAWNY",
+            "status":"Stan",
+            "up":"SPRAWNY"
+         },
+         "title":"Health"
+      }
+   }
+}

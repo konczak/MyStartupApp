@@ -1,0 +1,175 @@
+<h3>
+   <span translate="questionnaireTemplate-list.label.title">
+      Questionnaire Templates
+   </span>
+   <a class="btn btn-success"
+      ui-sref="questionnaireTemplate.add" 
+      sec:authorize="hasAnyRole('ROLE_HR', 'ROLE_MANAGER')"
+      ng-attr-title="{{'questionnaireTemplate-list.label.add'|translate}}">
+      <i class="fa fa-plus-square"></i>
+      <span class="hidden-xs" 
+            translate="questionnaireTemplate-list.label.add" >
+         Create Questionnaire Template
+      </span>
+   </a>
+</h3>
+<div class="row">
+   <div class="col-md-12">
+         <h4 translate="questionnaireTemplate-list.count"
+             translate-values="{count:'{{filtered.length}}'}">
+         	Count of displayed templates
+         </h4>
+   </div>
+</div>
+
+<br/>
+<h4>
+   <center class="" ng-show="!questionnaireTemplates.length" 
+           translate="questionnaireTemplate-list.noData">
+      No Data
+   </center>
+</h4>
+
+<div ng-show="questionnaireTemplates.length">
+   <div class="row row-header-top">
+            <div class="hidden-xs col-md-4">
+            	<a href="" ng-click="sortBy('name')">
+            		{{'questionnaireTemplate-list.label.name'|translate}}
+            	</a>
+            	<span ng-show="order.predicate === 'name'"
+            		ng-class="{ 'fa fa-chevron-down' : order.reverse,
+                      'fa fa-chevron-up' : !order.reverse } ">                              
+                </span>
+            </div>
+            <div class="hidden-xs col-md-2">
+            	<a href="" ng-click="sortBy('author')">
+            		{{'questionnaireTemplate-list.label.createdBy'|translate}}
+            	</a>
+            	<span ng-show="order.predicate === 'author'"
+            		ng-class="{ 'fa fa-chevron-down' : order.reverse,
+                      'fa fa-chevron-up' : !order.reverse } ">                              
+                </span>
+            </div>
+            <div class="hidden-xs col-md-1 text-center">
+                 {{'questionnaireTemplate-list.label.language'|translate}}
+            </div>
+            <div class="hidden-xs col-md-2 text-center">
+            	<a href="" ng-click="sortBy('createdAt')">
+                  {{'questionnaireTemplate-list.label.createdAt'|translate}}
+            	</a>
+            	<span ng-show="order.predicate === 'createdAt'"
+            		ng-class="{ 'fa fa-chevron-down' : order.reverse,
+                      'fa fa-chevron-up' : !order.reverse } ">                              
+                </span>
+            </div>
+            <div class="hidden-xs col-md-2 text-center">
+            	<a href="" ng-click="sortBy('updatedAt')">
+            		{{'questionnaireTemplate-list.label.updatedAt'|translate}}
+            	</a>
+            	<span ng-show="order.predicate === 'updatedAt'" 
+            		ng-class="{ 'fa fa-chevron-down' : order.reverse,
+                      'fa fa-chevron-up' : !order.reverse } ">                              
+                </span>
+            </div>
+            <div class="hidden-xs col-md-1"></div>
+   </div>
+   <div class="row row-header-bottom">
+      <div class="hidden-xs col-md-4">         
+         <input type="text"
+                class="form-control input-sm"
+                ng-attr-placeholder="{{'questionnaireTemplate-list.label.name'|translate}}"
+                ng-model="searchParams.name" />
+      </div>
+      <div class="hidden-xs col-md-2">         
+         <input type="text"
+                class="form-control input-sm"
+                ng-attr-placeholder="{{'questionnaireTemplate-list.label.createdBy'|translate}}"
+                ng-model="searchParams.author" />
+      </div>              
+      <div class="hidden-xs col-md-1">
+         <select class="form-control input-sm"
+                 ng-model="searchParams.language">
+            <option value=""
+                    translate="questionnaireTemplate-list.dropdown.language.all"
+                    select="selected">
+            </option>
+            <option value="pl-PL"
+                    translate="questionnaireTemplate-list.dropdown.language.polish">      
+            </option>     
+            <option value="en-GB"
+                    translate="questionnaireTemplate-list.dropdown.language.english">
+            </option>
+         </select>
+      </div>       
+      <div class="hidden-xs col-md-2">
+	     <div class="col-md-6 no-side-padding">
+	         <div date-time-picker=""
+	                ng-attr-placeholder="{{'questionnaireTemplate-list.label.dateFrom'|translate}}"
+	                ng-model="searchParams.createdAtFrom"></div>
+	     </div>
+	     <div class="col-md-6 no-side-padding">
+	         <div date-time-picker=""
+	                ng-attr-placeholder="{{'questionnaireTemplate-list.label.dateTo'|translate}}"
+	                ng-model="searchParams.createdAtTo"></div>
+	     </div>
+      </div>
+      <div class="hidden-xs col-md-2">
+      	 <div class="col-md-6 no-side-padding">
+	         <div date-time-picker=""
+	                ng-attr-placeholder="{{'questionnaireTemplate-list.label.dateFrom'|translate}}"
+	                ng-model="searchParams.updatedAtFrom"></div>
+	     </div>
+	     <div class="col-md-6 no-side-padding">
+	         <div date-time-picker=""
+	                ng-attr-placeholder="{{'questionnaireTemplate-list.label.dateTo'|translate}}"
+	                ng-model="searchParams.updatedAtTo"></div>
+	     </div>
+      </div>
+      <div class="hidden-xs col-md-1">
+         <button class="btn btn-default btn-sm main-button" type="button" ng-click="clearSearchParams()">
+            <i class="fa fa-remove"></i>
+         </button>
+      </div>
+   </div>
+   <div class="row row-custom" 
+   		ng-repeat="questionnaireTemplate in filtered = 
+   			(questionnaireTemplates | questionnaireTemplateListFilter:searchParams
+            | orderBy: order.predicate : order.reverse)">
+      <div class="col-xs-5 visible-xs">
+            <strong><small translate="questionnaireTemplate-list.label.name"></small></strong>
+      </div>
+      <div class="col-xs-7 col-md-4">
+        <a ui-sref="questionnaireTemplate.details({id: questionnaireTemplate.questionnaireTemplateId})">
+          {{questionnaireTemplate.name}}
+        </a>
+         <div class="visible-xs pull-right" th:include="questionnaireTemplate/list-dropdown"></div>
+      </div>
+      <div class="col-xs-5 visible-xs">
+            <strong><small translate="questionnaireTemplate-list.label.createdBy"></small></strong>
+      </div>
+      <div class="col-xs-7 col-md-2">
+        <a ui-sref="employee.common.details({id: questionnaireTemplate.employee.employeeId})">
+          {{questionnaireTemplate.author}}
+        </a>
+      </div>
+      <div class="col-xs-5 visible-xs">
+            <strong><small translate="questionnaireTemplate-list.label.language"></small></strong>
+      </div>
+      <div class="col-xs-7 col-md-1 text-center">
+		<div language-flag="questionnaireTemplate.language" with-label="true"></div>      
+      </div>
+      <div class="col-xs-5 visible-xs">
+            <strong><small translate="questionnaireTemplate-list.label.createdAt"></small></strong>
+      </div>
+      <div class="col-xs-7 col-md-2 text-center">
+      	  {{questionnaireTemplate.createdAt | date:'yyyy-MM-dd HH:mm'}}
+      </div>
+      <div class="col-xs-5 visible-xs">
+            <strong><small translate="questionnaireTemplate-list.updatedAt"></small></strong>
+      </div>
+      <div class="col-xs-7 col-md-2 text-center">
+      	  {{questionnaireTemplate.updatedAt | date:'yyyy-MM-dd HH:mm'}}
+      </div>
+      <div class="hidden-xs col-md-1" th:include="questionnaireTemplate/list-dropdown"></div>
+    </div>
+</div>

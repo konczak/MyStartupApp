@@ -1,0 +1,66 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-3.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      ng-app="myStartupApp">
+   <head>
+      <title>Layout</title>
+      <meta charset="utf-8" />
+      <meta name="description" content="" />
+      <meta name="author" content="Konczak Piotr" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+      <link media="screen"
+            rel="stylesheet"
+            th:href="@{/webjars/bootswatch-spacelab/3.2.0/css/bootstrap.min.css}" />
+      <link media="screen"
+            rel="stylesheet"
+            th:href="@{/webjars/font-awesome/4.4.0/css/font-awesome.min.css}" />
+      <link media="screen"
+            rel="stylesheet"
+            th:href="@{/webjars/angular-multi-select/2.0.0/angular-multi-select.css}" />
+      <link media="screen"
+            rel="stylesheet"
+            th:href="@{/webjars/angularjs-toaster/0.4.7/toaster.css}" />
+      <link rel="shortcut icon"
+            type="image/x-icon"
+            th:href="@{/img/favicon.png}"/>
+
+      <link type="image/x-icon" href="/img/favicon.png" th:href="@{/img/favicon.png}" rel="shortcut icon" />
+
+      <script th:src="@{/webjars/jquery/2.1.1/jquery.min.js}"/>
+      <script th:src="@{/webjars/bootstrap/3.2.0/js/bootstrap.min.js}"/>
+      <script th:src="@{/webjars/angularjs/1.2.23/angular.min.js}"/>
+      <script th:src="@{/webjars/angularjs/1.2.23/angular-resource.min.js}"/>
+      <script th:src="@{/webjars/angularjs/1.2.23/angular-route.min.js}"/>
+      <script th:src="@{/webjars/angularjs/1.2.23/angular-animate.min.js}"/>
+      <script th:src="@{/webjars/angular-ui-bootstrap/0.11.0/ui-bootstrap-tpls.min.js}"/>
+      <script th:src="@{/webjars/angular-multi-select/2.0.0/angular-multi-select.js}"/>
+      <script th:src="@{/webjars/angularjs-toaster/0.4.7/toaster.js}"/>
+      <script th:src="@{/webjars/momentjs/2.7.0/min/moment.min.js}"/>
+
+   </head>
+   <body>
+      <header th:replace="fragments/navbar :: header">
+         HEADER-NAV 
+      </header>
+
+      <div class="container">
+         <div class="page-header">
+            <div layout:fragment="header"></div>
+         </div>
+
+
+         <div layout:fragment="content">
+            Fake content
+         </div>
+
+      </div>
+
+      <footer th:replace="fragments/footerAuthenticated :: footer">
+         FOOTER
+      </footer>
+
+      <toaster-container toaster-options="{'position-class': 'toast-bottom-right'}"/>
+   </body>
+</html>

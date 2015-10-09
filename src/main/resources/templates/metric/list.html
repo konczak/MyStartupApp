@@ -1,0 +1,35 @@
+<h3>
+   <span>
+      {{'metric-list.label.title'|translate}}
+   </span>
+</h3>
+
+<h4 class="text-center"
+    ng-show="!metrics.length">
+   {{'metric-list.label.noData'|translate}}
+</h4>
+
+<div ng-show="metrics.length">
+   <br/>
+   <div>
+      <span>
+         {{'metric-list.label.javascriptError'|translate}}
+      </span>
+      <span class="label label-danger">
+         {{errorsJs}}
+      </span>
+   </div>
+   <br/>
+   <table class="table" >
+      <thead>
+      </thead>
+      <tbody>
+         <tr ng-repeat="metric in metrics">
+            <td>
+               {{metric.key}}
+            </td>
+            <td>{{metric.value}}</td>
+         </tr>
+      </tbody>
+   </table>
+</div>
